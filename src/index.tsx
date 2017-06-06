@@ -1,4 +1,3 @@
-import "core-js/shim";
 import * as OfflinePluginRuntime from "offline-plugin/runtime";
 import createHistory from "history/createBrowserHistory";
 import React from "react";
