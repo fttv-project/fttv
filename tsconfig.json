@@ -2,15 +2,14 @@
 	"compilerOptions": {
 		"module": "es2015",
 		"moduleResolution": "node",
-		"target": "es5",
-		"downlevelIteration": true,
+		"target": "es2015",
 
 		"baseUrl": "./src",
 
 		"jsx": "react",
 		"lib": [
 			"dom",
-			"es2017"
+			"es2016"
 		],
 		"plugins": [
 			{"name": "tslint-language-service"}
