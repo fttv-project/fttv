@@ -24,9 +24,12 @@ class App extends React.Component<AppProps & StoreProps, {}> {
 		return (
 			<CustomProperties global properties={theme.properties}>
 				<main className={style.container}>
-					<Helmet titleTemplate={`%s - ${manifest.short_name}`} />
-					<NavigationBar />
+					<Helmet
+						defaultTitle={manifest.short_name}
+						titleTemplate={`%s - ${manifest.short_name}`}
+					/>
 
+					<NavigationBar />
 					<div className={style.page}>
 						<Route exact path="/" component={Home} />
 						<Route exact path="/counter" component={Loadable(() => System.import("pages/counter"))} />
