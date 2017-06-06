@@ -2,6 +2,8 @@
 	width: 100%;
 	display: flex;
 	position: absolute;
+	color: var(--text-primary);
+	background-color: var(--background-primary);
 	// account for navbar
 	height: calc(100% - 4.5rem);
 	top: 4.5rem;

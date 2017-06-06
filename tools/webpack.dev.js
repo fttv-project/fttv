@@ -54,5 +54,5 @@ module.exports = Object.assign(base, {
 		}),
 		new CheckerPlugin()
 	]),
-	devtool: "eval-source-map"
+	devtool: "source-map"
 });
