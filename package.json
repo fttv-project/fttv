@@ -1,6 +1,6 @@
 {
 	"name": "fttv",
-	"description": "A faster twitch.tv implementation",
+	"description": "A faster twitch.tv implementation.",
 	"private": true,
 	"version": "0.0.1",
 	"license": "Apache-2.0",
