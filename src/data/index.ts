@@ -11,7 +11,7 @@ export interface State {
 
 export interface TypedAction<T extends string> {
 	readonly type: T;
-	payload: {};
+	payload?: {};
 }
 
 export const rootEpic = combineEpics(

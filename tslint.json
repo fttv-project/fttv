@@ -53,9 +53,12 @@
 		"array-type": [true, "array"],
 		"arrow-parens": [true, "ban-single-arg-parens"],
 		"interface-name": [true, "never-prefix"],
-		"ordered-imports": [true, {
-			"import-sources-order": "any",
-			"named-imports-order": "lowercase-last"
-		}]
+		"ordered-imports": [
+			true,
+			{
+				"import-sources-order": "any",
+				"named-imports-order": "lowercase-last"
+			}
+		]
 	}
 }

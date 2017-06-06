@@ -3,6 +3,7 @@ import Helmet from "react-helmet";
 import {connect} from "react-redux";
 import {InjectedTranslateProps, translate} from "react-i18next";
 import {Action, Dispatch} from "redux";
+
 import {State} from "data";
 import {decrease, decreaseAsync, increase, increaseAsync, set} from "data/counter";
 
@@ -66,10 +67,10 @@ interface StateProps {
 }
 
 interface DispatchProps {
-	increase(value: number): void;
 	decrease(value: number): void;
-	increaseAsync(value: number): void;
 	decreaseAsync(value: number): void;
+	increase(value: number): void;
+	increaseAsync(value: number): void;
 	set(value: number): void;
 }
 
@@ -82,10 +83,10 @@ const mapStateToProps = (state: State) => ({
 });
 
 const mapDispatchToProps = (dispatch: Dispatch<Action>) => ({
-	increase: (value: number) => dispatch(increase(value)),
 	decrease: (value: number) => dispatch(decrease(value)),
-	increaseAsync: (value: number) => dispatch(increaseAsync(value)),
 	decreaseAsync: (value: number) => dispatch(decreaseAsync(value)),
+	increase: (value: number) => dispatch(increase(value)),
+	increaseAsync: (value: number) => dispatch(increaseAsync(value)),
 	set: (value: number) => dispatch(set(value))
 });
 

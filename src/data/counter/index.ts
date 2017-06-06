@@ -10,12 +10,12 @@ const initialState: State = {
 
 export const reducer = (state = initialState, action: Action): State => {
 	switch (action.type) {
-		case ActionTypes.INCREASE: {
-			return {value: state.value + action.payload.value};
-		}
-
 		case ActionTypes.DECREASE: {
 			return {value: state.value - action.payload.value};
+		}
+
+		case ActionTypes.INCREASE: {
+			return {value: state.value + action.payload.value};
 		}
 
 		case ActionTypes.SET: {
@@ -27,16 +27,16 @@ export const reducer = (state = initialState, action: Action): State => {
 };
 
 export const epic = (actions$: ActionsObservable<Action>) => actions$
-	.ofType(ActionTypes.INCREASE_ASYNC, ActionTypes.DECREASE_ASYNC)
+	.ofType(ActionTypes.DECREASE_ASYNC, ActionTypes.INCREASE_ASYNC)
 	.delay(1000)
 	.map(action => {
 		switch (action.type) {
-			case ActionTypes.INCREASE_ASYNC: {
-				return increase(action.payload.value);
-			}
-
 			case ActionTypes.DECREASE_ASYNC: {
 				return decrease(action.payload.value);
+			}
+
+			case ActionTypes.INCREASE_ASYNC: {
+				return increase(action.payload.value);
 			}
 
 			default: return;
