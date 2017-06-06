@@ -1,6 +1,6 @@
 declare global {
 	interface System {
-		import(request: string): Promise<any>;
+		import<T = any>(request: string): Promise<T>;
 	}
 
 	const System: System;

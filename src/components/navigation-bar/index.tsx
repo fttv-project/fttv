@@ -8,10 +8,7 @@ export default class NavigationBar extends React.Component<{}, {}> {
 		return (
 			<nav className={style.nav}>
 				<img className={style.logo} src={logo} />
-
-				<ul>
-
-				</ul>
+				<ul />
 			</nav>
 		);
 	}
