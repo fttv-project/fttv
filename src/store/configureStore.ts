@@ -1,4 +1,5 @@
 import {applyMiddleware, createStore} from "redux";
+import {persistStore, autoRehydrate} from "redux-persist";
 import {connectRouter, routerMiddleware} from "connected-react-router";
 import {composeWithDevTools} from "redux-devtools-extension/developmentOnly";
 import {createEpicMiddleware} from "redux-observable";
@@ -13,12 +14,15 @@ export default (history: History, initialState?: State) => {
 		applyMiddleware(
 			routerMiddleware(history),
 			epicMiddleware
-		)
+		),
+		autoRehydrate()
 	);
 
 	const store = initialState
 		? createStore<State>(connectRouter(history)(reducer), initialState, enhancers)
 		: createStore<State>(connectRouter(history)(reducer), enhancers);
+
+	persistStore(store);
 
 	if ((process.env.NODE_ENV === "development") && module.hot) {
 		module.hot.accept("data", () => {

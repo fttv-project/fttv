@@ -1,5 +1,6 @@
 import {ActionsObservable} from "redux-observable";
-import "common/rxjs";
+
+import {Observable} from "common/rxjs";
 
 import {Action, ActionTypes, decrease, increase} from "./actions";
 import {State} from "./model";
@@ -29,17 +30,17 @@ export const reducer = (state = initialState, action: Action): State => {
 export const epic = (actions$: ActionsObservable<Action>) => actions$
 	.ofType(ActionTypes.DECREASE_ASYNC, ActionTypes.INCREASE_ASYNC)
 	.delay(1000)
-	.map(action => {
+	.switchMap(action => {
 		switch (action.type) {
 			case ActionTypes.DECREASE_ASYNC: {
-				return decrease(action.payload.value);
+				return Observable.of(decrease(action.payload.value));
 			}
 
 			case ActionTypes.INCREASE_ASYNC: {
-				return increase(action.payload.value);
+				return Observable.of(increase(action.payload.value));
 			}
 
-			default: return;
+			default: return Observable.empty<Action>();
 		}
 	});
 
