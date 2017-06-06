@@ -1,9 +1,9 @@
 {
-	"name": "Counter",
-	"short_name": "Counter",
+	"name": "FTTV",
+	"short_name": "FTTV",
 	"start_url": "./?manifest=true",
 	"display": "standalone",
-	"background_color": "#FFF",
-	"description": "Count numbers!",
-	"theme_color": "#00BFFF"
+	"background_color": "#fff",
+	"description": "A faster twitch.tv implementation.",
+	"theme_color": "#4b367c"
 }
