@@ -8,18 +8,14 @@ import NavigationBar from "components/navigation-bar";
 import manifest from "assets/static/manifest.json";
 import style from "./style.scss";
 
-export default class App extends React.Component<any, any> {
-	render() {
-		return (
-			<main className={style.container}>
-				<Helmet titleTemplate={`%s - ${manifest.short_name}`} />
-				<NavigationBar />
+export default () => (
+	<main className={style.container}>
+		<Helmet titleTemplate={`%s - ${manifest.short_name}`} />
+		<NavigationBar />
 
-				<div className={style.page}>
-					<Route exact path="/" component={Home} />
-					<Route exact path="/counter" component={Loadable(() => System.import("pages/counter"))} />
-				</div>
-			</main>
-		);
-	}
-}
+		<div className={style.page}>
+			<Route exact path="/" component={Home} />
+			<Route exact path="/counter" component={Loadable(() => System.import("pages/counter"))} />
+		</div>
+	</main>
+);
