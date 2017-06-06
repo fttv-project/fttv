@@ -8,16 +8,14 @@ export const enum ActionTypes {
 	LOAD_THEME = "config/LOAD_THEME"
 }
 
-export interface SetThemeAction extends TypedAction<ActionTypes> {
-	readonly type: ActionTypes.SET_THEME;
+export interface SetThemeAction extends TypedAction<ActionTypes.SET_THEME> {
 	payload: {
 		name: ThemeName,
 		properties: ThemeProperties
 	};
 }
 
-export interface LoadThemeAction extends TypedAction<ActionTypes> {
-	readonly type: ActionTypes.LOAD_THEME;
+export interface LoadThemeAction extends TypedAction<ActionTypes.LOAD_THEME> {
 	payload: {
 		name: ThemeName;
 	};

@@ -14,10 +14,6 @@
 		"plugins": [
 			{"name": "tslint-language-service"}
 		],
-		"typeRoots": [
-			"node_modules/@types",
-			"tools/typings"
-		],
 
 		"strict": true,
 		"sourceMap": true,
