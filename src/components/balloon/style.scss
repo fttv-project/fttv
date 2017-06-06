@@ -1,0 +1,15 @@
+$dialog-bg-color: #fff;
+$dialog-border-color: #dad8de;
+
+.dialog {
+	position: absolute;
+	bottom: 5px;
+	right: 0;
+	background: $dialog-bg-color;
+	border-radius: 2px;
+	border: 1px solid $dialog-border-color;
+}
+
+.wrapper {
+	position: relative;
+}

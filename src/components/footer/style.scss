@@ -2,11 +2,12 @@ $footer-bg-color: #19171c;
 
 .footer {
 	width: 100%;
+	height: 15.5rem;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	background: $footer-bg-color;
-	padding: 8rem 0 5rem 0;
+	padding-top: 3rem;
 
 	img {
 		opacity: 0.2;
@@ -16,9 +17,15 @@ $footer-bg-color: #19171c;
 
 .links {
 	display: flex;
+	flex-wrap: wrap;
 	list-style: none;
 
 	li {
 		margin-right: 1rem;
 	}
+}
+
+.notice {
+	position: absolute;
+	bottom: 1rem;
 }

@@ -1,5 +1,4 @@
 import React from "react";
-import Helmet from "react-helmet";
 import {Link, RouteComponentProps} from "react-router-dom";
 import {InjectedTranslateProps, translate} from "react-i18next";
 
@@ -13,8 +12,6 @@ export default class Home extends React.Component<Props, any> {
 
 		return (
 			<section className={style.container}>
-				<Helmet title={t("title")} />
-
 				<div className={style.content}>
 					<h1>{t("title")}</h1>
 					<Link to="/counter">{t("navigation.counter")}</Link>
