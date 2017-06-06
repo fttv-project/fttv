@@ -1,0 +1,9 @@
+{
+	"name": "Counter",
+	"short_name": "Counter",
+	"start_url": "./?manifest=true",
+	"display": "standalone",
+	"background_color": "#FFF",
+	"description": "Count numbers!",
+	"theme_color": "#00BFFF"
+}
