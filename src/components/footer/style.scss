@@ -1,0 +1,24 @@
+$footer-bg-color: #19171c;
+
+.footer {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: $footer-bg-color;
+	padding: 8rem 0 5rem 0;
+
+	img {
+		opacity: 0.2;
+		margin-right: 2rem;
+	}
+}
+
+.links {
+	display: flex;
+	list-style: none;
+
+	li {
+		margin-right: 1rem;
+	}
+}

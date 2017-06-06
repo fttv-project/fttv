@@ -7,7 +7,17 @@
 }
 
 html, body {
-	font-size: 16px;
+	color: #d3d3d3;
+	font-size: 12px;
+}
+
+a:visited, a:link {
+	color: inherit;
+	text-decoration: none;
+}
+
+a:hover, a:focus, a:active {
+	text-decoration: underline;
 }
 
 }
