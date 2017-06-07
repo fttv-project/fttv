@@ -24,6 +24,8 @@ const App = ({theme}: Props) => (
 			<div className={style.page}>
 				<Route exact path="/" component={Home} />
 				<Route exact path="/counter" component={Loadable(() => System.import("pages/counter"))} />
+				<Route exact path="/directory" component={null!} />
+				<Route exact path="/directory/following" component={null!} />
 			</div>
 		</main>
 	</CustomProperties>

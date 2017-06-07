@@ -1,6 +1,10 @@
-$nav-bg-color: #4b367c;
 
 .nav {
+	--nav-bg-color: #4b367c;
+	--nav-text-color: #d7cceb;
+	--nav-text-color-hover: #fff;
+	--nav-text-color-active: #f9f8fc;
+
 	width: 100%;
 	height: 4.5rem;
 	display: flex;
@@ -9,7 +13,33 @@ $nav-bg-color: #4b367c;
 	top: 0;
 	z-index: 1;
 	padding: 0 1.3rem;
-	background: $nav-bg-color;
+	font-size: 1.15rem;
+	background: var(--nav-bg-color);
+	color: var(--nav-text-color);
+}
+
+.list {
+	list-style: none;
+	display: flex;
+	align-items: center;
+
+	li {
+		padding: 1.5rem;
+
+		a:global(.active) {
+			font-weight: bold;
+			text-decoration: none;
+			color: var(--nav-text-color-active);
+		}
+
+		a:hover {
+			color: var(--nav-text-color-hover);
+		}
+	}
+
+	button img {
+		padding: 0.6rem;
+	}
 }
 
 .logo {
