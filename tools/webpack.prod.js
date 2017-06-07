@@ -21,7 +21,7 @@ module.exports = Object.assign(base, {
 			{
 				test: /\.tsx?$/,
 				exclude: /node_modules/,
-				loader: "awesome-typescript-loader"
+				loader: "ts-loader"
 			},
 
 			{

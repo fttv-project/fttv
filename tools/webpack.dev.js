@@ -2,7 +2,7 @@ process.env.NODE_ENV = "development";
 const base = require("./webpack.base");
 const common = require("./common");
 const webpack = require("webpack");
-const {CheckerPlugin} = require("awesome-typescript-loader");
+const ForkTsCheckerPlugin = require("fork-ts-checker-webpack-plugin");
 const FriendlyErrorsPlugin = require("friendly-errors-webpack-plugin");
 
 module.exports = Object.assign(base, {
@@ -26,7 +26,12 @@ module.exports = Object.assign(base, {
 				exclude: /node_modules/,
 				loaders: [
 					"react-hot-loader/webpack",
-					"awesome-typescript-loader"
+					{
+						loader: "ts-loader",
+						options: {
+							transpileOnly: true
+						}
+					}
 				]
 			},
 
@@ -47,12 +52,14 @@ module.exports = Object.assign(base, {
 		new webpack.HotModuleReplacementPlugin(),
 		new webpack.NoEmitOnErrorsPlugin(),
 		new webpack.NamedModulesPlugin(),
+		new ForkTsCheckerPlugin({
+			tslint: true
+		}),
 		new FriendlyErrorsPlugin({
 			compilationSuccessInfo: {
 				messages: ['Dev server running at http://localhost:3000']
 			}
-		}),
-		new CheckerPlugin()
+		})
 	]),
 	devtool: "source-map"
 });
