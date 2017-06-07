@@ -37,6 +37,7 @@ export const epic = (actions$: ActionsObservable<Action>) => actions$
 				if (action.payload.config && action.payload.config.theme) {
 					return action.payload.config.theme.name;
 				}
+
 				return initialState.theme.name;
 			}
 

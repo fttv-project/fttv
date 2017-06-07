@@ -7,6 +7,5 @@ export namespace CommonActionTypes {
 }
 
 export interface RehydrateAction extends TypedAction<typeof CommonActionTypes.REHYDRATE> {
-	readonly type: typeof CommonActionTypes.REHYDRATE;
 	readonly payload: State;
 }

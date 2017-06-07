@@ -1,5 +1,6 @@
 {
 	"extends": ["tslint:recommended", "tslint-react"],
+	"defaultSeverity": "warning",
 	"rules": {
 		"jsx-alignment": true,
 		"jsx-boolean-value": [true, "never"],
