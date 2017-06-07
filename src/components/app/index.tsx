@@ -5,20 +5,14 @@ import {Route} from "react-router";
 import {connect} from "react-redux";
 
 import Loadable from "common/loadable";
+import {State} from "data";
 import {Theme} from "data/config";
 import Home from "pages/home";
 import NavigationBar from "components/navigation-bar";
 import manifest from "assets/static/manifest.json";
 import style from "./style.scss";
-import {State} from "data";
 
-export interface AppProps {}
-
-interface StoreProps {
-	theme: Theme;
-}
-
-const App = ({ theme }: AppProps & StoreProps) => (
+const App = ({theme}: Props) => (
 	<CustomProperties global properties={theme.properties}>
 		<main className={style.container}>
 			<Helmet
@@ -35,8 +29,16 @@ const App = ({ theme }: AppProps & StoreProps) => (
 	</CustomProperties>
 );
 
-export default connect<StoreProps, {}, AppProps>(
-	(state: State) => ({ theme: state.config.theme }),
+type Props = StoreProps;
+
+interface StoreProps {
+	theme: Theme;
+}
+
+export default connect<StoreProps, {}, {}>(
+	(state: State) => ({
+		theme: state.config.theme
+	}),
 	null,
 	null,
 	{pure: false}
