@@ -34,8 +34,8 @@ class Counter extends React.Component<Props, OwnState> {
 
 	render() {
 		const t = this.props.t!;
+		const decreaseFunc = this.state.async ? this.props.decreaseAsync : this.props.decrease;
 		const increaseFunc = this.state.async ? this.props.increaseAsync : this.props.increase;
-		const decreaseFunc = this.state.async ? this.props.increaseAsync : this.props.increase;
 		const { loadTheme } = this.props;
 
 		return (
