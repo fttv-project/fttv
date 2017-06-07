@@ -1,15 +1,6 @@
-import { ThemeExport, ThemeProperties } from "styles/themes";
+import {Theme} from "styles/themes";
 
-export type ThemeName =
-	| "light"
-	| "dark";
-
-export { ThemeExport, ThemeProperties };
-
-export interface Theme {
-	name: ThemeName;
-	properties: ThemeProperties;
-}
+export {Theme};
 
 export interface State {
 	theme: Theme;

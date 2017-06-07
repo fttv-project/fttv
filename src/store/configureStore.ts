@@ -23,6 +23,7 @@ export default (history: History, initialState?: State) => {
 		: createStore<State>(connectRouter(history)(reducer), enhancers);
 
 	persistStore(store, {
+		keyPrefix: "fttv:",
 		whitelist: ["config"]
 	});
 

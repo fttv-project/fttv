@@ -6,6 +6,7 @@ export interface ThemeProperties {
 	"--accent": string;
 }
 
-export interface ThemeExport {
+export interface Theme {
+	name: string;
 	properties: ThemeProperties;
 }

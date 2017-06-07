@@ -1,7 +1,7 @@
 import {TypedAction} from "data";
 import {RehydrateAction} from "data/common";
 
-import {ThemeName, ThemeProperties} from "./model";
+import {Theme} from "./model";
 
 export const enum ActionTypes {
 	SET_THEME = "config/SET_THEME",
@@ -10,14 +10,13 @@ export const enum ActionTypes {
 
 export interface SetThemeAction extends TypedAction<ActionTypes.SET_THEME> {
 	payload: {
-		name: ThemeName,
-		properties: ThemeProperties
+		theme: Theme;
 	};
 }
 
 export interface LoadThemeAction extends TypedAction<ActionTypes.LOAD_THEME> {
 	payload: {
-		name: ThemeName;
+		name: string;
 	};
 }
 
@@ -26,12 +25,12 @@ export type Action =
 	| LoadThemeAction
 	| RehydrateAction;
 
-export const setTheme = (name: ThemeName, properties: ThemeProperties): Action => ({
+export const setTheme = (theme: Theme): Action => ({
 	type: ActionTypes.SET_THEME,
-	payload: {name, properties}
+	payload: {theme}
 });
 
-export const loadTheme = (name: ThemeName): Action => ({
+export const loadTheme = (name: string): Action => ({
 	type: ActionTypes.LOAD_THEME,
 	payload: {name}
 });

@@ -5,7 +5,7 @@ import {InjectedTranslateProps, translate} from "react-i18next";
 import {Action, Dispatch} from "redux";
 
 import {State} from "data";
-import {Theme, ThemeName, loadTheme} from "data/config";
+import {Theme, loadTheme} from "data/config";
 import {decrease, decreaseAsync, increase, increaseAsync, set} from "data/counter";
 
 import style from "./style.scss";
@@ -27,7 +27,7 @@ class Counter extends React.Component<Props, OwnState> {
 		this.props.set(Number.isFinite(value) ? value : this.props.value);
 	}
 
-	getNewTheme = (): ThemeName => {
+	getNewTheme = (): string => {
 		const { theme } = this.props;
 		return theme.name === "light" ? "dark" : "light";
 	}
@@ -84,7 +84,7 @@ interface DispatchProps {
 	increase(value: number): void;
 	increaseAsync(value: number): void;
 	set(value: number): void;
-	loadTheme(newTheme: ThemeName): void;
+	loadTheme(newTheme: string): void;
 }
 
 interface OwnState {
