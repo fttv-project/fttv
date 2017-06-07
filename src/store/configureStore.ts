@@ -1,5 +1,5 @@
 import {applyMiddleware, createStore} from "redux";
-import {persistStore, autoRehydrate} from "redux-persist";
+import {autoRehydrate, persistStore} from "redux-persist";
 import {connectRouter, routerMiddleware} from "connected-react-router";
 import {composeWithDevTools} from "redux-devtools-extension/developmentOnly";
 import {createEpicMiddleware} from "redux-observable";

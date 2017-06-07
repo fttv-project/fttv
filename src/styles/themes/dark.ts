@@ -6,4 +6,3 @@ export const properties: ThemeProperties = {
 	"--background-primary": "#19171c",
 	"--accent": "#6441a4"
 };
-

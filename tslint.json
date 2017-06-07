@@ -35,6 +35,7 @@
 				]
 			}
 		],
+		"no-empty": false,
 		"no-empty-interface": false,
 		"no-namespace": false,
 		"no-object-literal-type-assertion": false,
