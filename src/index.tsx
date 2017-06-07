@@ -1,10 +1,10 @@
 import * as OfflinePluginRuntime from "offline-plugin/runtime";
 import createHistory from "history/createBrowserHistory";
 import React from "react";
-import {render} from "react-dom";
-import {Provider} from "react-redux";
-import {I18nextProvider} from "react-i18next";
-import {AppContainer} from "react-hot-loader";
+import { render } from "react-dom";
+import { Provider } from "react-redux";
+import { I18nextProvider } from "react-i18next";
+import { AppContainer } from "react-hot-loader";
 
 import i18n from "common/i18n";
 import configureStore from "store/configureStore";

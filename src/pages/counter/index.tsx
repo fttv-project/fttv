@@ -1,12 +1,12 @@
 import React from "react";
 import Helmet from "react-helmet";
-import {connect} from "react-redux";
-import {InjectedTranslateProps, translate} from "react-i18next";
-import {Action, Dispatch} from "redux";
+import { connect } from "react-redux";
+import { InjectedTranslateProps, translate } from "react-i18next";
+import { Action, Dispatch } from "redux";
 
-import {State} from "data";
-import {Theme, loadTheme} from "data/config";
-import {decrease, decreaseAsync, increase, increaseAsync, set} from "data/counter";
+import { State } from "data";
+import { Theme, loadTheme } from "data/config";
+import { decrease, decreaseAsync, increase, increaseAsync, set } from "data/counter";
 
 import style from "./style.scss";
 

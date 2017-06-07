@@ -1,18 +1,18 @@
 import React from "react";
 import Helmet from "react-helmet";
 import CustomProperties from "react-custom-properties";
-import {Route} from "react-router";
-import {connect} from "react-redux";
+import { Route } from "react-router";
+import { connect } from "react-redux";
 
 import Loadable from "common/loadable";
-import {State} from "data";
-import {Theme} from "data/config";
+import { State } from "data";
+import { Theme } from "data/config";
 import Home from "pages/home";
 import NavigationBar from "components/navigation-bar";
 import manifest from "assets/static/manifest.json";
 import style from "./style.scss";
 
-const App = ({theme}: Props) => (
+const App = ({ theme }: Props) => (
 	<CustomProperties global properties={theme.properties}>
 		<main className={style.container}>
 			<Helmet
@@ -43,5 +43,5 @@ export default connect<StoreProps, {}, {}>(
 	}),
 	null,
 	null,
-	{pure: false}
+	{ pure: false }
 )(App);

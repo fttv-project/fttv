@@ -1,9 +1,9 @@
-import {ActionsObservable} from "redux-observable";
+import { ActionsObservable } from "redux-observable";
 
-import {Observable} from "common/rxjs";
+import { Observable } from "common/rxjs";
 
-import {Action, ActionTypes, decrease, increase} from "./actions";
-import {State} from "./model";
+import { Action, ActionTypes, decrease, increase } from "./actions";
+import { State } from "./model";
 
 const initialState: State = {
 	value: 0
@@ -12,15 +12,15 @@ const initialState: State = {
 export const reducer = (state = initialState, action: Action): State => {
 	switch (action.type) {
 		case ActionTypes.DECREASE: {
-			return {value: state.value - action.payload.value};
+			return { value: state.value - action.payload.value };
 		}
 
 		case ActionTypes.INCREASE: {
-			return {value: state.value + action.payload.value};
+			return { value: state.value + action.payload.value };
 		}
 
 		case ActionTypes.SET: {
-			return {value: action.payload.value};
+			return { value: action.payload.value };
 		}
 
 		default: return state;

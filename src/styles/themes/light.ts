@@ -1,4 +1,4 @@
-import {Theme} from "styles/themes";
+import { Theme } from "styles/themes";
 
 export default {
 	name: "light",

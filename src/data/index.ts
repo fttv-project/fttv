@@ -1,6 +1,6 @@
-import {combineReducers} from "redux";
-import {combineEpics} from "redux-observable";
-import {RouterState} from "connected-react-router";
+import { combineReducers } from "redux";
+import { combineEpics } from "redux-observable";
+import { RouterState } from "connected-react-router";
 
 import * as config from "./config";
 import * as counter from "./counter";

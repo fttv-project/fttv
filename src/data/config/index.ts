@@ -1,11 +1,11 @@
-import {ActionsObservable} from "redux-observable";
+import { ActionsObservable } from "redux-observable";
 
-import {Observable} from "common/rxjs";
-import {CommonActionTypes} from "data/common/actions";
+import { Observable } from "common/rxjs";
+import { CommonActionTypes } from "data/common/actions";
 import lightTheme from "styles/themes/light";
 
-import {Action, ActionTypes, setTheme} from "./actions";
-import {State, Theme} from "./model";
+import { Action, ActionTypes, setTheme } from "./actions";
+import { State, Theme } from "./model";
 
 const initialState: State = {
 	theme: lightTheme
@@ -14,7 +14,7 @@ const initialState: State = {
 export const reducer = (state = initialState, action: Action): State => {
 	switch (action.type) {
 		case ActionTypes.SET_THEME: {
-			return {...state, theme: action.payload.theme};
+			return { ...state, theme: action.payload.theme };
 		}
 
 		default: return state;
@@ -47,7 +47,7 @@ export const epic = (actions$: ActionsObservable<Action>) => actions$
 		}
 
 		return Observable
-			.fromPromise(System.import<{default: Theme}>(`styles/themes/${themeName}`))
+			.fromPromise(System.import<{ default: Theme }>(`styles/themes/${themeName}`))
 			.map(theme => setTheme(theme.default));
 	});
 

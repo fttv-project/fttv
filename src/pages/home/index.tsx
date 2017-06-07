@@ -1,6 +1,6 @@
 import React from "react";
-import {NavLink, RouteComponentProps} from "react-router-dom";
-import {InjectedTranslateProps, translate} from "react-i18next";
+import { NavLink, RouteComponentProps } from "react-router-dom";
+import { InjectedTranslateProps, translate } from "react-i18next";
 
 import style from "./style.scss";
 

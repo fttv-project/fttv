@@ -1,4 +1,4 @@
-const {resolve, join} = require("path");
+const { resolve, join } = require("path");
 
 const ROOT = "./src";
 const paths = {

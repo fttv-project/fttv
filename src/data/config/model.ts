@@ -1,6 +1,6 @@
-import {Theme} from "styles/themes";
+import { Theme } from "styles/themes";
 
-export {Theme};
+export { Theme };
 
 export interface State {
 	theme: Theme;

@@ -1,6 +1,6 @@
-import {REHYDRATE as reduxRehydrate} from "redux-persist/constants";
+import { REHYDRATE as reduxRehydrate } from "redux-persist/constants";
 
-import {State, TypedAction} from "data";
+import { State, TypedAction } from "data";
 
 export namespace CommonActionTypes {
 	export const REHYDRATE = reduxRehydrate;

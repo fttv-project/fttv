@@ -10,7 +10,7 @@ export default class Balloon extends React.Component<Props, {}> {
 		if (props.onClickOutside) this.handleClickOutside = props.onClickOutside;
 	}
 
-	handleClickOutside = (_: any) => {};
+	handleClickOutside = (_: any) => { };
 
 	render() {
 		return this.props.open ? (

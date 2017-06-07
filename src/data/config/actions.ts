@@ -1,7 +1,7 @@
-import {TypedAction} from "data";
-import {RehydrateAction} from "data/common";
+import { TypedAction } from "data";
+import { RehydrateAction } from "data/common";
 
-import {Theme} from "./model";
+import { Theme } from "./model";
 
 export const enum ActionTypes {
 	SET_THEME = "config/SET_THEME",
@@ -27,10 +27,10 @@ export type Action =
 
 export const setTheme = (theme: Theme): Action => ({
 	type: ActionTypes.SET_THEME,
-	payload: {theme}
+	payload: { theme }
 });
 
 export const loadTheme = (name: string): Action => ({
 	type: ActionTypes.LOAD_THEME,
-	payload: {name}
+	payload: { name }
 });

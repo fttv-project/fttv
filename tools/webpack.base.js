@@ -1,6 +1,6 @@
 const common = require("./common");
 const config = require("./config");
-const {resolve, join} = require("path");
+const { resolve, join } = require("path");
 const webpack = require("webpack");
 const CleanPlugin = require("clean-webpack-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
@@ -38,7 +38,7 @@ module.exports = {
 	plugins: [
 		new webpack.optimize.CommonsChunkPlugin({
 			name: "vendor",
-			minChunks: ({resource}) => /node_modules/.test(resource)
+			minChunks: ({ resource }) => /node_modules/.test(resource)
 		}),
 		new webpack.optimize.CommonsChunkPlugin("manifest"),
 		new CleanPlugin(
@@ -48,7 +48,7 @@ module.exports = {
 			}
 		),
 		new CopyPlugin([
-			{from: common.paths.static}
+			{ from: common.paths.static }
 		]),
 		new HtmlPlugin(
 			Object.assign(

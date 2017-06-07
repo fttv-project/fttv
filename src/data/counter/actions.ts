@@ -1,4 +1,4 @@
-import {TypedAction} from "data";
+import { TypedAction } from "data";
 
 export enum ActionTypes {
 	DECREASE = "counter/DECREASE",
@@ -19,25 +19,25 @@ export type Action =
 
 export const decrease = (value: number): Action => ({
 	type: ActionTypes.DECREASE,
-	payload: {value}
+	payload: { value }
 });
 
 export const decreaseAsync = (value: number): Action => ({
 	type: ActionTypes.DECREASE_ASYNC,
-	payload: {value}
+	payload: { value }
 });
 
 export const increase = (value: number): Action => ({
 	type: ActionTypes.INCREASE,
-	payload: {value}
+	payload: { value }
 });
 
 export const increaseAsync = (value: number): Action => ({
 	type: ActionTypes.INCREASE_ASYNC,
-	payload: {value}
+	payload: { value }
 });
 
 export const set = (value: number): Action => ({
 	type: ActionTypes.SET,
-	payload: {value}
+	payload: { value }
 });
