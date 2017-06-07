@@ -10,7 +10,7 @@ import Home from "pages/home";
 import NavigationBar from "components/navigation-bar";
 import manifest from "assets/static/manifest.json";
 import style from "./style.scss";
-import { State } from "data";
+import {State} from "data";
 
 export interface AppProps {}
 
@@ -18,28 +18,26 @@ interface StoreProps {
 	theme: Theme;
 }
 
-class App extends React.Component<AppProps & StoreProps, {}> {
-	render() {
-		const { theme } = this.props;
-		return (
-			<CustomProperties global properties={theme.properties}>
-				<main className={style.container}>
-					<Helmet
-						defaultTitle={manifest.short_name}
-						titleTemplate={`%s - ${manifest.short_name}`}
-					/>
+const App = ({ theme }: AppProps & StoreProps) => (
+	<CustomProperties global properties={theme.properties}>
+		<main className={style.container}>
+			<Helmet
+				defaultTitle={manifest.short_name}
+				titleTemplate={`%s - ${manifest.short_name}`}
+			/>
 
-					<NavigationBar />
-					<div className={style.page}>
-						<Route exact path="/" component={Home} />
-						<Route exact path="/counter" component={Loadable(() => System.import("pages/counter"))} />
-					</div>
-				</main>
-			</CustomProperties>
-		);
-	}
-}
+			<NavigationBar />
+			<div className={style.page}>
+				<Route exact path="/" component={Home} />
+				<Route exact path="/counter" component={Loadable(() => System.import("pages/counter"))} />
+			</div>
+		</main>
+	</CustomProperties>
+);
 
 export default connect<StoreProps, {}, AppProps>(
-	(state: State) => ({ theme: state.config.theme })
+	(state: State) => ({ theme: state.config.theme }),
+	null,
+	null,
+	{pure: false}
 )(App);
