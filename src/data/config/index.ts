@@ -23,32 +23,26 @@ export const reducer = (state = initialState, action: Action): State => {
 
 export const epic = (actions$: ActionsObservable<Action>) => actions$
 	.ofType(ActionTypes.LOAD_THEME, CommonActionTypes.REHYDRATE)
-	.map(action => {
+	.switchMap(action => {
 		switch (action.type) {
 			case ActionTypes.LOAD_THEME: {
-				return action.payload.name;
+				const { name } = action.payload;
+				return Observable
+					.fromPromise(System.import<{ default: Theme }>(`styles/themes/${name}`))
+					.map(newTheme => setTheme(newTheme.default));
 			}
 
 			case CommonActionTypes.REHYDRATE: {
 				// Use the persisted version if there is one
 				if (action.payload.config && action.payload.config.theme) {
-					return action.payload.config.theme.name;
+					return Observable.of(setTheme(action.payload.config.theme));
 				}
 
-				return initialState.theme.name;
+				return Observable.of(setTheme(initialState.theme));
 			}
 
-			default: return;
+			default: return Observable.empty<Action>();
 		}
-	})
-	.switchMap(themeName => {
-		if (!themeName) {
-			return Observable.empty<Action>();
-		}
-
-		return Observable
-			.fromPromise(System.import<{ default: Theme }>(`styles/themes/${themeName}`))
-			.map(theme => setTheme(theme.default));
 	});
 
 export * from "./actions";
