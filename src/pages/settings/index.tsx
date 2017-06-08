@@ -31,7 +31,7 @@ class Settings extends React.Component<Props, {}> {
 				<div className={style.theming}>
 					<select onChange={this.onThemeChange} value={this.props.theme.name}>
 						{themes.map(name => (
-							<option value={name}>{name}</option>
+							<option key={name} value={name}>{name}</option>
 						))}
 					</select>
 				</div>

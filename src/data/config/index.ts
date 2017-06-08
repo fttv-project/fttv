@@ -35,13 +35,13 @@ export const epic = (actions$: ActionsObservable<Action>) => actions$
 			case CommonActionTypes.REHYDRATE: {
 				// Use the persisted version if there is one
 				if (action.payload.config && action.payload.config.theme) {
-					return Observable.of(setTheme(action.payload.config.theme));
+					return [setTheme(action.payload.config.theme)];
 				}
 
-				return Observable.of(setTheme(initialState.theme));
+				return [setTheme(initialState.theme)];
 			}
 
-			default: return Observable.empty<Action>();
+			default: return [];
 		}
 	});
 
