@@ -14,7 +14,7 @@ export default class NavigationBar extends React.Component<{}, {}> {
 				<ul className={style.list}>
 					<li><NavLink exact to="/directory/following">Following</NavLink></li>
 					<li><NavLink exact to="/directory">Browse</NavLink></li>
-					<li><a href="https://twitch.amazon/prime">Try Prime</a></li>
+					<li><a href="https://twitch.amazon.com/prime">Try Prime</a></li>
 					<li>
 						<Button><img src={moreIcon} /></Button>
 					</li>
