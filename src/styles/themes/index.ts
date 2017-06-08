@@ -3,7 +3,8 @@ export interface ThemeProperties {
 	"--text-primary": string;
 	"--text-primary-inverse": string;
 	"--background-primary": string;
-	"--accent": string;
+	"--accent-primary": string;
+	"--accent-secondary": string;
 }
 
 export interface Theme {

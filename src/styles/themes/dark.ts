@@ -7,6 +7,7 @@ export default {
 		"--text-primary-inverse": "#333",
 		"--text-accent": "#fff",
 		"--background-primary": "#19171c",
-		"--accent": "#4b367c"
+		"--accent-primary": "#4b367c",
+		"--accent-secondary": "#6441a4"
 	}
 } as Theme;
