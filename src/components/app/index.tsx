@@ -23,7 +23,7 @@ const App = ({ theme }: Props) => (
 			<NavigationBar />
 			<div className={style.page}>
 				<Route exact path="/" component={Home} />
-				<Route exact path="/counter" component={Loadable(() => System.import("pages/counter"))} />
+				<Route exact path="/settings" component={Loadable(() => System.import("pages/settings"))} />
 				<Route exact path="/directory" component={null!} />
 				<Route exact path="/directory/following" component={null!} />
 			</div>

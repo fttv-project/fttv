@@ -13,7 +13,7 @@ export default class Home extends React.Component<Props, any> {
 			<section className={style.container}>
 				<div className={style.content}>
 					<h1>{t("title")}</h1>
-					<NavLink to="/counter">{t("navigation.counter")}</NavLink>
+					<NavLink to="/settings">{t("navigation.settings")}</NavLink>
 				</div>
 			</section>
 		);
