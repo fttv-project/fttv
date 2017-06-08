@@ -8,6 +8,7 @@ import { History } from "history";
 import reducer, { State, rootEpic } from "data";
 
 export default (history: History, initialState?: State) => {
+	const rootReducer = connectRouter(history)(reducer);
 	const epicMiddleware = createEpicMiddleware(rootEpic);
 
 	const enhancers = composeWithDevTools(
@@ -19,12 +20,12 @@ export default (history: History, initialState?: State) => {
 	);
 
 	const store = initialState
-		? createStore<State>(connectRouter(history)(reducer), initialState, enhancers)
-		: createStore<State>(connectRouter(history)(reducer), enhancers);
+		? createStore<State>(rootReducer, initialState, enhancers)
+		: createStore<State>(rootReducer, enhancers);
 
 	persistStore(store, {
 		keyPrefix: "fttv:",
-		whitelist: ["settings"]
+		whitelist: ["settings", "user"]
 	});
 
 	if ((process.env.NODE_ENV === "development") && module.hot) {

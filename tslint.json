@@ -44,6 +44,7 @@
 
 		"curly": false,
 		"no-console": [false],
+		"no-var-requires": false,
 
 		"indent": [true, "tabs"],
 		"linebreak-style": [true, "LF"],

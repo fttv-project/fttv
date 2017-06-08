@@ -4,8 +4,8 @@ import { RehydrateAction } from "data/common";
 import { Theme } from "./model";
 
 export const enum ActionTypes {
-	SET_THEME = "config/SET_THEME",
-	LOAD_THEME = "config/LOAD_THEME"
+	SET_THEME = "settings/SET_THEME",
+	LOAD_THEME = "settings/LOAD_THEME"
 }
 
 export interface SetThemeAction extends TypedAction<ActionTypes.SET_THEME> {

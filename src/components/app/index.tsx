@@ -12,6 +12,9 @@ import NavigationBar from "components/navigation-bar";
 import manifest from "assets/static/manifest.json";
 import style from "./style.scss";
 
+const Auth = Loadable(() => System.import("pages/auth"));
+const Settings = Loadable(() => System.import("pages/settings"));
+
 const App = ({ theme }: Props) => (
 	<CustomProperties global properties={theme.properties}>
 		<main className={style.container}>
@@ -23,8 +26,8 @@ const App = ({ theme }: Props) => (
 			<NavigationBar />
 			<div className={style.page}>
 				<Route exact path="/" component={Home} />
-				<Route exact path="/login" component={Loadable(() => System.import("pages/login"))} />
-				<Route exact path="/settings" component={Loadable(() => System.import("pages/settings"))} />
+				<Route exact path="/auth" component={Auth} />
+				<Route exact path="/settings" component={Settings} />
 				<Route exact path="/directory" component={null!} />
 				<Route exact path="/directory/following" component={null!} />
 			</div>

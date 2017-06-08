@@ -2,11 +2,15 @@ import { combineReducers } from "redux";
 import { combineEpics } from "redux-observable";
 import { RouterState } from "connected-react-router";
 
-import * as config from "./config";
+import * as errors from "./errors";
+import * as settings from "./settings";
+import * as user from "./user";
 
 export interface State {
-	config: config.State;
+	errors: errors.State;
 	router: RouterState;
+	settings: settings.State;
+	user: user.State;
 }
 
 export interface TypedAction<T extends string> {
@@ -15,9 +19,13 @@ export interface TypedAction<T extends string> {
 }
 
 export const rootEpic = combineEpics<TypedAction<any>, State>(
-	config.epic
+	errors.epic,
+	settings.epic,
+	user.epic
 );
 
 export default combineReducers<State>({
-	config: config.reducer
+	errors: errors.reducer,
+	settings: settings.reducer,
+	user: user.reducer
 });
