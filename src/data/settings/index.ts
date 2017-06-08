@@ -4,7 +4,7 @@ import { Observable } from "common/rxjs";
 import { CommonActionTypes } from "data/common/actions";
 import lightTheme from "styles/themes/light";
 
-import { Action, ActionTypes, setTheme } from "./actions";
+import { Action, ActionTypes, loadTheme, setTheme } from "./actions";
 import { State, Theme } from "./model";
 
 const initialState: State = {
@@ -35,10 +35,13 @@ export const epic = (actions$: ActionsObservable<Action>) => actions$
 			case CommonActionTypes.REHYDRATE: {
 				// Use the persisted version if there is one
 				if (action.payload.settings && action.payload.settings.theme) {
-					return [setTheme(action.payload.settings.theme)];
+					return [
+						setTheme(action.payload.settings.theme),
+						loadTheme(action.payload.settings.theme.name)
+					];
 				}
 
-				return [setTheme(initialState.theme)];
+				return [];
 			}
 
 			default: return [];
