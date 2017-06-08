@@ -10,3 +10,8 @@ export interface Theme {
 	name: string;
 	properties: ThemeProperties;
 }
+
+export const themes = [
+	"dark",
+	"light"
+];

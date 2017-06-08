@@ -1,10 +1,5 @@
 
 .nav {
-	--nav-bg-color: #4b367c;
-	--nav-text-color: #d7cceb;
-	--nav-text-color-hover: #fff;
-	--nav-text-color-active: #f9f8fc;
-
 	width: 100%;
 	height: 4.5rem;
 	display: flex;
@@ -14,8 +9,8 @@
 	z-index: 1;
 	padding: 0 1.3rem;
 	font-size: 1.15rem;
-	background: var(--nav-bg-color);
-	color: var(--nav-text-color);
+	background: var(--accent);
+	color: var(--text-accent);
 }
 
 .list {
@@ -26,14 +21,18 @@
 	li {
 		padding: 1.5rem;
 
-		a:global(.active) {
-			font-weight: bold;
-			text-decoration: none;
-			color: var(--nav-text-color-active);
-		}
+		a {
+			opacity: 0.7;
 
-		a:hover {
-			color: var(--nav-text-color-hover);
+			&:global(.active) {
+				font-weight: bold;
+				text-decoration: none;
+				opacity: 0.9;
+			}
+
+			&:hover {
+				opacity: 1;
+			}
 		}
 	}
 

@@ -5,7 +5,8 @@ export default {
 	properties: {
 		"--text-primary": "#333",
 		"--text-primary-inverse": "#fff",
+		"--text-accent": "#fff",
 		"--background-primary": "#fff",
-		"--accent": "#6441a4"
+		"--accent": "#4b367c"
 	}
 } as Theme;
