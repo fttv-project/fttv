@@ -24,7 +24,7 @@ export default (history: History, initialState?: State) => {
 
 	persistStore(store, {
 		keyPrefix: "fttv:",
-		whitelist: ["config"]
+		whitelist: ["settings"]
 	});
 
 	if ((process.env.NODE_ENV === "development") && module.hot) {

@@ -6,7 +6,7 @@ import { connect } from "react-redux";
 
 import Loadable from "common/loadable";
 import { State } from "data";
-import { Theme } from "data/config";
+import { Theme } from "data/settings";
 import Home from "pages/home";
 import NavigationBar from "components/navigation-bar";
 import manifest from "assets/static/manifest.json";
@@ -23,6 +23,7 @@ const App = ({ theme }: Props) => (
 			<NavigationBar />
 			<div className={style.page}>
 				<Route exact path="/" component={Home} />
+				<Route exact path="/login" component={Loadable(() => System.import("pages/login"))} />
 				<Route exact path="/settings" component={Loadable(() => System.import("pages/settings"))} />
 				<Route exact path="/directory" component={null!} />
 				<Route exact path="/directory/following" component={null!} />
@@ -39,7 +40,7 @@ interface StoreProps {
 
 export default connect<StoreProps, {}, {}>(
 	(state: State) => ({
-		theme: state.config.theme
+		theme: state.settings.theme
 	}),
 	null,
 	null,

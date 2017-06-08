@@ -29,13 +29,13 @@ export const epic = (actions$: ActionsObservable<Action>) => actions$
 				const { name } = action.payload;
 				return Observable
 					.fromPromise(System.import<{ default: Theme }>(`styles/themes/${name}`))
-					.map(newTheme => setTheme(newTheme.default));
+					.map(theme => setTheme(theme.default));
 			}
 
 			case CommonActionTypes.REHYDRATE: {
 				// Use the persisted version if there is one
-				if (action.payload.config && action.payload.config.theme) {
-					return [setTheme(action.payload.config.theme)];
+				if (action.payload.settings && action.payload.settings.theme) {
+					return [setTheme(action.payload.settings.theme)];
 				}
 
 				return [setTheme(initialState.theme)];

@@ -6,7 +6,7 @@ import { Action, Dispatch, bindActionCreators } from "redux";
 
 import { returnOf } from "common/util";
 import { State } from "data";
-import { loadTheme } from "data/config";
+import { loadTheme } from "data/settings";
 import { themes } from "styles/themes";
 
 import style from "./style.scss";
@@ -41,7 +41,7 @@ class Settings extends React.Component<Props, {}> {
 }
 
 const mapStateToProps = (state: State) => ({
-	theme: state.config.theme
+	theme: state.settings.theme
 });
 
 const mapDispatchToProps = (dispatch: Dispatch<Action>) => bindActionCreators({
