@@ -11,12 +11,13 @@ export const getHeaders = (accessToken: string) => ({
 	"Client-ID": config.twitch.client_id
 });
 
-export const getAuthorizeUrl = () => {
+export const getAuthorizeUrl = (state: string) => {
 	const options = {
 		client_id: config.twitch.client_id,
 		redirect_uri: config.twitch.redirect_uri,
 		response_type: "token",
-		scope: config.twitch.scope.join(" ")
+		scope: config.twitch.scope.join(" "),
+		state
 	};
 	return `${BASE_URL}/oauth2/authorize/?${stringify(options)}`;
 };

@@ -4,25 +4,31 @@ import { InjectedTranslateProps, translate } from "react-i18next";
 import { Action, Dispatch, bindActionCreators } from "redux";
 
 import { getAuthorizeUrl } from "common/twitch-api";
-import { returnOf } from "common/util";
+import { generateRandomString, returnOf } from "common/util";
 import { add as addError } from "data/errors";
 import { setAccessToken } from "data/user";
 import Button from "components/button";
 
 @translate("login-button")
 class LoginButton extends React.Component<Props, {}> {
+	private validationToken?: string;
+
 	onMessage = (e: MessageEvent) => {
 		if (e.data.type !== "auth") return;
 
 		if (e.data.payload.error) {
 			this.props.addError(e.data.payload.error_description);
+		} else if (e.data.payload.state !== this.validationToken) {
+			this.props.addError("Invalid XSRF token on authorization request");
 		} else {
 			this.props.setAccessToken(e.data.payload.access_token);
+			this.validationToken = undefined;
 		}
 	}
 
 	openWindow = () => {
-		window.open(getAuthorizeUrl(), "auth", "width=540,height=640,menubar=0,toolbar=0");
+		this.validationToken = generateRandomString(16);
+		window.open(getAuthorizeUrl(this.validationToken), "auth", "width=540,height=640,menubar=0,toolbar=0");
 	}
 
 	componentDidMount() {
