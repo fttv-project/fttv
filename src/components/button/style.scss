@@ -1,11 +1,13 @@
 .button {
-	background: transparent;
+	background: var(--button-background);
 	border: 0;
 	color: inherit;
 	cursor: pointer;
 	font: inherit;
 	line-height: normal;
 	overflow: visible;
+	padding: 0.8rem;
+	transition: background 120ms ease, box-shadow 120ms ease, color 120ms ease;
 	-webkit-appearance: none;
 
 	&::-moz-focus-inner {
@@ -14,11 +16,23 @@
 	}
 
 	&:active, &:focus {
-		box-shadow: 0 0 6px 0 #7d5bbe;
+		box-shadow: 0 0 6px 0 var(--button-shadow);
 		outline: 0;
+	}
+
+	&:not(.transparent):hover, &:not(.transparent):focus {
+		background: var(--button-background-lighter);
+	}
+
+	&:not(.transparent):active {
+		background: var(--button-background);
 	}
 
 	img, svg {
 		vertical-align: middle;
 	}
+}
+
+.transparent {
+	background: transparent;
 }

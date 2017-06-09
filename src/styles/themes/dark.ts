@@ -3,11 +3,17 @@ import { Theme } from "styles/themes";
 export default {
 	name: "dark",
 	properties: {
-		"--text-primary": "#faf9fa",
-		"--text-primary-inverse": "#333",
-		"--text-accent": "#fff",
-		"--background-primary": "#19171c",
-		"--accent-primary": "#4b367c",
-		"--accent-secondary": "#6441a4"
+		"--app-background": "#1e1e1e",
+		"--app-text": "#d3d3d3",
+
+		"--balloon-background": "#1e1e1e",
+		"--balloon-border": "#282828",
+
+		"--button-background": "#6441a4",
+		"--button-background-lighter": "#7d5bbe",
+		"--button-shadow": "#7d5bbe",
+
+		"--navigation-bar-background": "#4b367c",
+		"--navigation-bar-text": "#fff"
 	}
 } as Theme;
