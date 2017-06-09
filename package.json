@@ -20,6 +20,7 @@
 		"lint": "tslint --project ."
 	},
 	"devDependencies": {
+		"@types/classnames": "^2.2.0",
 		"@types/history": "^4.5.2",
 		"@types/i18next": "^2.3.38",
 		"@types/i18next-browser-languagedetector": "^0.0.31",
@@ -65,6 +66,7 @@
 		"webpack-subresource-integrity": "^1.0.0-rc.1"
 	},
 	"dependencies": {
+		"classnames": "^2.2.5",
 		"connected-react-router": "^4.2.1",
 		"history": "^4.6.1",
 		"i18next": "^8.4.1",

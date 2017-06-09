@@ -5,12 +5,12 @@ import style from "./style.scss";
 
 @(onClickOutside as any)
 export default class Balloon extends React.Component<Props, {}> {
+	handleClickOutside: () => void;
+
 	constructor(props: Props) {
 		super(props);
-		if (props.onClickOutside) this.handleClickOutside = props.onClickOutside;
+		this.handleClickOutside = props.onClose;
 	}
-
-	handleClickOutside = (_: any) => { };
 
 	render() {
 		return this.props.open ? (
@@ -24,6 +24,6 @@ export default class Balloon extends React.Component<Props, {}> {
 }
 
 interface Props {
-	onClickOutside?: (e: React.MouseEventHandler<any>) => void;
+	onClose: () => void;
 	open: boolean;
 }
