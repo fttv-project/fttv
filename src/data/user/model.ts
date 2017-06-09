@@ -1,7 +1,7 @@
-import { User } from "common/twitch-api";
+import { UserDetails } from "common/twitch-api";
 
 export interface State {
 	accessToken?: string;
-	details?: User;
+	details?: UserDetails;
 	scope: string[];
 }
