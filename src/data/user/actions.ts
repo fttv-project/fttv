@@ -1,4 +1,4 @@
-import { User } from "common/twitch-api";
+import { UserDetails } from "common/twitch-api";
 import { TypedAction } from "data";
 
 export const enum ActionTypes {
@@ -17,7 +17,7 @@ export interface SetAccessTokenAction extends TypedAction<ActionTypes.SET_ACCESS
 
 export interface SetDetailsAction extends TypedAction<ActionTypes.SET_DETAILS> {
 	payload: {
-		details: User;
+		details: UserDetails;
 	};
 }
 
@@ -35,7 +35,7 @@ export const setAccessToken = (accessToken: string): Action => ({
 	payload: { accessToken }
 });
 
-export const setDetails = (details: User): Action => ({
+export const setDetails = (details: UserDetails): Action => ({
 	type: ActionTypes.SET_DETAILS,
 	payload: { details }
 });

@@ -2,8 +2,7 @@ import { stringify } from "querystring";
 
 import config from "common/config";
 import { Observable } from "common/rxjs";
-
-export const BASE_URL = "https://api.twitch.tv/kraken";
+import { BASE_URL } from "./common";
 
 export const getHeaders = (accessToken: string) => ({
 	"Accept": "application/vnd.twitchtv.v5+json",
@@ -13,6 +12,7 @@ export const getHeaders = (accessToken: string) => ({
 
 export const getAuthorizeUrl = (state: string) => {
 	const options = {
+		api_version: config.twitch.api_version,
 		client_id: config.twitch.client_id,
 		redirect_uri: config.twitch.redirect_uri,
 		response_type: "token",
@@ -23,23 +23,26 @@ export const getAuthorizeUrl = (state: string) => {
 };
 
 export const getUser = (accessToken: string) =>
-	Observable.ajax.getJSON<User>(`${BASE_URL}/user`, getHeaders(accessToken));
+	Observable.ajax.getJSON<UserDetails>(`${BASE_URL}/user`, getHeaders(accessToken));
 
 export interface User {
 	_id: number;
 	bio: string;
 	created_at: string;
 	display_name: string;
-	email: string;
-	email_verified: boolean;
 	logo: string;
 	name: string;
+	type: string;
+	updated_at: string;
+}
+
+export interface UserDetails extends User {
+	email: string;
+	email_verified: boolean;
 	notifications: {
 		email: boolean;
 		push: boolean;
 	};
 	partnered: boolean;
 	twitter_connected: boolean;
-	type: string;
-	updated_at: string;
 }
