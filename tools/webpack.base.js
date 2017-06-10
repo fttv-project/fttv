@@ -78,7 +78,11 @@ module.exports = {
 			caches: {
 				optional: [":rest:"]
 			},
-			AppCache: false
+			AppCache: false,
+			ServiceWorker: {
+				navigateFallbackURL: "/",
+				navigateFallbackForRedirects: false
+			}
 		})
 	]
 };
