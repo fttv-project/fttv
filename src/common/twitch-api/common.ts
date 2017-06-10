@@ -2,7 +2,7 @@ import { stringify } from "querystring";
 
 import config from "common/config";
 import { Observable } from "common/rxjs";
-import { isEmptyObject, removeUndefined } from "common/util";
+import { removeUndefined } from "common/util";
 
 export interface QueryParams {
 	[key: string]: string | number | undefined;
@@ -30,7 +30,7 @@ export interface CursorPaginated extends Paginated {
 export const BASE_URL = "https://api.twitch.tv/kraken";
 export const VERSION_HEADER = `application/vnd.twitchtv.v${config.twitch.api_version}+json`;
 
-const makeQueryString = (queryParams?: QueryParams) => !queryParams || isEmptyObject(queryParams)
+const makeQueryString = (queryParams?: QueryParams) => !queryParams
 	? ""
 	: `?${stringify(removeUndefined(queryParams))}`;
 
