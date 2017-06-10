@@ -67,7 +67,7 @@
 	},
 	"dependencies": {
 		"classnames": "^2.2.5",
-		"connected-react-router": "^4.2.1",
+		"connected-react-router": "github:odensc/connected-react-router",
 		"history": "^4.6.1",
 		"i18next": "^8.4.1",
 		"i18next-browser-languagedetector": "^1.0.1",
