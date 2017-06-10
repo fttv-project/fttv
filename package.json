@@ -16,6 +16,7 @@
 	],
 	"scripts": {
 		"build": "webpack --progress --config tools/webpack.prod.js",
+		"build-debug": "cross-env PRODUCTION_DEBUG=1 npm run build",
 		"start": "webpack-dev-server --progress --port 3000 --config tools/webpack.dev.js",
 		"lint": "tslint --project ."
 	},
@@ -41,6 +42,7 @@
 		"babili-webpack-plugin": "^0.1.1",
 		"clean-webpack-plugin": "^0.1.16",
 		"copy-webpack-plugin": "^4.0.1",
+		"cross-env": "^5.0.1",
 		"css-loader": "^0.28.4",
 		"extract-text-webpack-plugin": "^2.1.2",
 		"file-loader": "^0.11.2",
@@ -62,6 +64,7 @@
 		"typescript": "^2.4.0-dev.20170608",
 		"typings-for-css-modules-loader": "^1.5.0",
 		"webpack": "^2.6.1",
+		"webpack-bundle-analyzer": "^2.8.2",
 		"webpack-dev-server": "^2.4.5",
 		"webpack-subresource-integrity": "^1.0.0-rc.1"
 	},

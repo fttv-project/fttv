@@ -2,14 +2,15 @@ process.env.NODE_ENV = "production";
 const base = require("./webpack.base");
 const common = require("./common");
 const webpack = require("webpack");
+const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const BabiliWebpackPlugin = require("babili-webpack-plugin");
 const SriPlugin = require("webpack-subresource-integrity");
 
 module.exports = Object.assign(base, {
 	output: Object.assign(base.output, {
-		filename: "[chunkhash].js",
-		chunkFilename: "[chunkhash].js"
+		filename: process.env.PRODUCTION_DEBUG ? "[name].js" : "[chunkhash:8].js",
+		chunkFilename: process.env.PRODUCTION_DEBUG ? "[name].chunk.js" : "[chunkhash:8].js",
 	}),
 	entry: {
 		"index": [
@@ -44,10 +45,16 @@ module.exports = Object.assign(base, {
 		}, {
 			comments: false
 		}),
-		new ExtractTextPlugin("[contenthash].css"),
+		new ExtractTextPlugin(process.env.PRODUCTION_DEBUG ? "[name].css" : "[contenthash:8].css"),
 		new SriPlugin({
 			enabled: true,
 			hashFuncNames: ["sha256", "sha512"]
 		})
-	])
+	].concat(process.env.PRODUCTION_DEBUG ? [
+		new BundleAnalyzerPlugin({
+			analyzerMode: "static",
+			openAnalyzer: false,
+			generateStatsFile: true
+		})
+	] : []))
 });

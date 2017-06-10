@@ -60,6 +60,5 @@ module.exports = Object.assign(base, {
 				messages: ['Dev server running at http://localhost:3000']
 			}
 		})
-	]),
-	devtool: "source-map"
+	])
 });

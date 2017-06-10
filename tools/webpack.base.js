@@ -84,5 +84,6 @@ module.exports = {
 				navigateFallbackForRedirects: false
 			}
 		})
-	]
+	],
+	devtool: (process.env.NODE_ENV === "development" || process.env.PRODUCTION_DEBUG) ? "source-map" : undefined
 };
