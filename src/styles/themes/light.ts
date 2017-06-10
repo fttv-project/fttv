@@ -8,6 +8,7 @@ export default {
 
 		"--balloon-background": "#fff",
 		"--balloon-border": "#dad8de",
+		"--balloon-text": "#19171c",
 
 		"--button-background": "#6441a4",
 		"--button-background-lighter": "#7d5bbe",

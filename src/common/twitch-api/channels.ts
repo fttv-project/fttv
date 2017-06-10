@@ -1,4 +1,3 @@
-
 export interface Channel {
 	mature: boolean;
 	status: string;

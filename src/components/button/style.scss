@@ -4,6 +4,7 @@
 	color: inherit;
 	cursor: pointer;
 	font: inherit;
+	font-size: 1rem;
 	line-height: normal;
 	overflow: visible;
 	padding: 0.8rem;
@@ -15,7 +16,7 @@
 		padding: 0;
 	}
 
-	&:active, &:focus {
+	&:not(.noFocus):active, &:not(.noFocus):focus {
 		box-shadow: 0 0 6px 0 var(--button-shadow);
 		outline: 0;
 	}
@@ -26,6 +27,10 @@
 
 	&:not(.transparent):active {
 		background: var(--button-background);
+	}
+
+	&:hover, &:focus {
+		text-decoration: none;
 	}
 
 	img, svg {

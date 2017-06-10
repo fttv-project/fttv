@@ -4,6 +4,24 @@
 	background: var(--balloon-background);
 	border: 1px solid var(--balloon-border);
 	border-radius: 2px;
+	color: var(--balloon-text);
+	margin: 0.5rem;
+	padding: 1rem;
+
+	&::after {
+		content: "";
+		position: absolute;
+		background: var(--balloon-background);
+		width: 0.5rem;
+		height: 0.5rem;
+		transform: rotate(45deg);
+
+		// TODO multiple directions
+		border-radius: 1px 0 0;
+		box-shadow: -1px -1px 0 var(--balloon-border);
+		top: -3px;
+		left: 6px;
+	}
 }
 
 .wrapper {

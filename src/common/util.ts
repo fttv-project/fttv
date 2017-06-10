@@ -14,8 +14,6 @@ export const generateRandomString = (length: number): string => {
 	return result;
 };
 
-export const isEmptyObject = (value: any) => Object.keys(value).length === 0 && value.contructor === Object;
-
 export const removeUndefined = (value: { [key: string]: any }) => {
 	for (const key of Object.keys(value)) {
 		if (value[key] && typeof value[key] === "object") {

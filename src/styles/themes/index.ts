@@ -5,6 +5,7 @@ export interface ThemeProperties {
 
 	"--balloon-background": string;
 	"--balloon-border": string;
+	"--balloon-text": string;
 
 	"--button-background": string;
 	"--button-background-lighter": string;
