@@ -12,6 +12,7 @@ module.exports = {
 		path: common.paths.dist,
 		filename: "[name].js",
 		chunkFilename: "[name].chunk.js",
+		jsonpFunction: "J",
 		crossOriginLoading: "anonymous",
 		publicPath: config.publicPath
 	},

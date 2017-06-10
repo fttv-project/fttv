@@ -9,7 +9,7 @@ const SriPlugin = require("webpack-subresource-integrity");
 module.exports = Object.assign(base, {
 	output: Object.assign(base.output, {
 		filename: "[chunkhash].js",
-		chunkFilename: "[chunkhash].chunk.js",
+		chunkFilename: "[chunkhash].js"
 	}),
 	entry: {
 		"index": [
@@ -35,7 +35,12 @@ module.exports = Object.assign(base, {
 		])
 	},
 	plugins: base.plugins.concat([
-		new BabiliWebpackPlugin(),
+		new BabiliWebpackPlugin({
+			removeConsole: true,
+			removeDebugger: true
+		}, {
+			comments: false
+		}),
 		new webpack.DefinePlugin({
 			"process.env.NODE_ENV": `"production"`
 		}),
