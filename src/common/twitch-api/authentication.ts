@@ -12,7 +12,6 @@ export const getHeaders = (accessToken: string) => ({
 
 export const getAuthorizeUrl = (state: string) => {
 	const options = {
-		api_version: config.twitch.api_version,
 		client_id: config.twitch.client_id,
 		redirect_uri: config.twitch.redirect_uri,
 		response_type: "token",

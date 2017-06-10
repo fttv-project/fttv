@@ -9,8 +9,8 @@ import { add as addError } from "data/errors";
 import { setAccessToken } from "data/user";
 import Button from "components/button";
 
-@translate("login-button")
-class LoginButton extends React.Component<Props, {}> {
+@translate("auth-buttons")
+class AuthButtons extends React.Component<Props, {}> {
 	private validationToken?: string;
 
 	onMessage = (e: MessageEvent) => {
@@ -43,9 +43,15 @@ class LoginButton extends React.Component<Props, {}> {
 		const t = this.props.t!;
 
 		return (
-			<Button onClick={this.openWindow}>
-				{t("text")}
-			</Button>
+			<div>
+				<Button onClick={this.openWindow} style={{marginRight: "1rem"}}>
+					{t("login")}
+				</Button>
+
+				<Button link="https://twitch.tv/signup">
+					{t("signup")}
+				</Button>
+			</div>
 		);
 	}
 }
@@ -61,4 +67,4 @@ const DispatchProps = returnOf(mapDispatchToProps);
 export default connect<{}, typeof DispatchProps, {}>(
 	null,
 	mapDispatchToProps
-)(LoginButton);
+)(AuthButtons);
