@@ -1,7 +1,6 @@
 {
 	"twitch": {
 		"api_version": "5",
-		"api_version_header": "application/vnd.twitchtv.v5+json",
 		"client_id": "7zm5wcesxfwxjba0rdlpsswgll4m8f",
 		"redirect_uri": "http://localhost:3000/auth",
 		"scope": [
