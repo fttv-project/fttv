@@ -1,6 +1,7 @@
 import { MiddlewareAPI } from "redux";
 import { ActionsObservable } from "redux-observable";
 
+import "common/rxjs";
 import { getUser } from "common/twitch-api";
 import { State as GlobalState } from "data";
 import { add as addError } from "data/errors";
@@ -8,7 +9,7 @@ import { add as addError } from "data/errors";
 import { Action, ActionTypes, requestDetails, setDetails } from "./actions";
 import { State } from "./model";
 
-const initialState: State = {
+export const initialState: State = {
 	scope: []
 };
 

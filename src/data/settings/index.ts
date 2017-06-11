@@ -7,7 +7,7 @@ import lightTheme from "styles/themes/light";
 import { Action, ActionTypes, loadTheme, setTheme } from "./actions";
 import { State, Theme } from "./model";
 
-const initialState: State = {
+export const initialState: State = {
 	theme: lightTheme
 };
 
