@@ -10,7 +10,7 @@ npm start
 ```
 
 ## PRs
-Before submitting a PR, make sure you run `npm run lint` and fix all errors.
+Before submitting a PR, make sure you run `npm run lint`, `npm run test`, and fix all errors.
 
 Some errors may have auto-fixes, in which case you can run `npm run lint -- --fix` and fix the remaining errors.
 
