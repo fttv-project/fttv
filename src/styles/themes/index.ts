@@ -1,5 +1,6 @@
 export interface ThemeProperties {
 	[key: string]: string;
+
 	"--app-background": string;
 	"--app-text": string;
 
