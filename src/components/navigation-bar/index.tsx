@@ -9,7 +9,6 @@ import Balloon from "components/balloon";
 import Button from "components/button";
 import UserInfo from "components/user-info";
 
-import logo from "assets/logo-full.svg";
 import moreIcon from "./more.svg";
 import style from "./style.scss";
 
@@ -40,7 +39,7 @@ class NavigationBar extends React.Component<Props, OwnState> {
 
 		return (
 			<nav className={style.nav}>
-				<NavLink exact to="/"><img className={style.logo} src={logo} /></NavLink>
+				<NavLink exact to="/"><div className={style.logo} /></NavLink>
 				<ul className={style.list}>
 					{collapsibleItems}
 

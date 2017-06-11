@@ -6,7 +6,6 @@
 	align-items: center;
 	top: 0;
 	z-index: 1;
-	padding: 0 1.3rem;
 	font-size: 1.15rem;
 	background: var(--navigation-bar-background);
 	color: var(--navigation-bar-text);
@@ -50,13 +49,18 @@
 }
 
 .logo {
-	padding-left: 0.2rem;
-	padding-right: 1.3rem;
+	width: 94px;
+	height: 32px;
+	margin: 0 1.3rem;
+	background-image: url("assets/logo-full.svg");
+	background-repeat: no-repeat;
 }
 
 @media (max-width: 48rem) {
 	.logo {
-		display: none;
+		width: 30px;
+		height: 30px;
+		background-image: url("assets/logo-icon.svg");
 	}
 
 	.nav {
@@ -65,7 +69,7 @@
 }
 
 @media (max-width: 38rem) {
-	.list li:not(.more) {
+	.list > li:not(.more) {
 		display: none;
 	}
 }

@@ -73,7 +73,7 @@ module.exports = {
 			safeToUseOptionalCaches: true,
 			autoUpdate: true,
 			version: "[hash]",
-			excludes: ["*.hot-update.*"],
+			excludes: ["*.hot-update.*", "*.map"],
 			responseStrategy: (process.env.NODE_ENV === "development") ? "network-first" : "cache-first",
 			caches: {
 				optional: [":rest:"]
