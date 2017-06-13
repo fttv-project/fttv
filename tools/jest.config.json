@@ -1,6 +1,6 @@
 {
 	"rootDir": "../",
-	"setupTestFrameworkScriptFile": "./tools/jest.setup.ts",
+	"setupTestFrameworkScriptFile": "<rootDir>/tools/jest.setup.ts",
 	"transform": {
 		".(ts|tsx)": "<rootDir>/node_modules/ts-jest/preprocessor.js"
 	},
