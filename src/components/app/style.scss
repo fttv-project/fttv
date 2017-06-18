@@ -5,8 +5,8 @@
 	background: var(--app-background);
 	color: var(--app-text);
 	// account for navbar
-	height: calc(100% - 4.5rem);
-	top: 4.5rem;
+	padding-top: 5rem;
+	height: 100vh;
 }
 
 .page {

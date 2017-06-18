@@ -1,12 +1,11 @@
 .nav {
 	width: 100%;
-	height: 4.5rem;
+	height: 5rem;
 	display: flex;
 	position: fixed;
 	align-items: center;
 	top: 0;
 	z-index: 1;
-	font-size: 1.15rem;
 	background: var(--navigation-bar-background);
 	color: var(--navigation-bar-text);
 }
@@ -16,10 +15,12 @@
 	display: flex;
 	align-items: center;
 
-	li {
+	> li {
 		padding: 1.5rem;
 
-		a {
+		> a {
+			color: inherit;
+			font-size: 1.4rem;
 			opacity: 0.7;
 			white-space: nowrap;
 
@@ -32,15 +33,16 @@
 			&:hover {
 				opacity: 1;
 			}
+
+			// prevent padding changes when font weight changes
+			&::after {
+				display: block;
+				height: 0;
+				visibility: hidden;
+				font-weight: bold;
+				content: attr(title);
+			}
 		}
-	}
-}
-
-.balloonList {
-	list-style: none;
-
-	li {
-		padding: 1rem 0;
 	}
 }
 
@@ -51,7 +53,7 @@
 .logo {
 	width: 94px;
 	height: 32px;
-	margin: 0 1.3rem;
+	margin: 0 1.5rem;
 	background-image: url("assets/logo-full.svg");
 	background-repeat: no-repeat;
 }
@@ -69,6 +71,10 @@
 }
 
 @media (max-width: 38rem) {
+	.list {
+		--collapsed: true;
+	}
+
 	.list > li:not(.more) {
 		display: none;
 	}

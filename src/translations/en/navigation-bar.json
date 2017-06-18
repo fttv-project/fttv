@@ -1,0 +1,24 @@
+{
+	"navItems": {
+		"following": "Following",
+		"browse": "Browse",
+		"tryPrime": "Try Prime"
+	},
+	"balloonItems": {
+		"about": "About",
+		"advertisers": "Advertisers",
+		"blog": "Blog",
+		"creative": "Creative",
+		"cookiePolicy": "Cookie Policy",
+		"developers": "Developers",
+		"help": "Help",
+		"jobs": "Jobs",
+		"language": "Language",
+		"music": "Music",
+		"partners": "Partners",
+		"press": "Press",
+		"store": "Store",
+		"terms": "Terms",
+		"getTwitchDesktopApp": "Get Twitch Desktop App"
+	}
+}

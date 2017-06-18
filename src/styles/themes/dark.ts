@@ -3,6 +3,8 @@ import { Theme } from "styles/themes";
 export default {
 	name: "dark",
 	properties: {
+		"--global-link": "#d3d3d3",
+
 		"--app-background": "#1e1e1e",
 		"--app-text": "#d3d3d3",
 

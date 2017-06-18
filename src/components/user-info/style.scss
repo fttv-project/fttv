@@ -1,7 +1,6 @@
 .card {
 	display: flex;
-	width: 22rem;
-	margin-right: -1.3rem;
+	width: 24rem;
 	justify-content: flex-start;
 	align-items: center;
 	text-align: left;
@@ -23,27 +22,34 @@
 }
 
 .info {
-	max-width: 13.5rem;
+	margin-top: -2px;
+	max-width: 15rem;
 	flex: 1 1 auto;
-	flex-direction: column;
+}
+
+.displayName {
+	font-size: 1.4rem;
 }
 
 .presence {
 	display: inline-block;
-	width: 0.6rem;
-	height: 0.6rem;
+	width: 0.7rem;
+	height: 0.7rem;
 	margin-right: 0.2rem;
 	vertical-align: middle;
 	background: #898395;
 }
 
+.presenceName {
+	opacity: 0.8;
+}
+
 .status {
-	font-size: 0.9rem;
-	opacity: 0.7;
+	font-size: 1.1rem;
 }
 
 .avatar {
-	width: 2.75rem;
-	height: 2.75rem;
+	width: 3rem;
+	height: 3rem;
 	margin: 0 1rem;
 }

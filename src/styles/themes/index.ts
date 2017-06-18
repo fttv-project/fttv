@@ -1,6 +1,8 @@
 export interface ThemeProperties {
 	[key: string]: string;
 
+	"--global-link": string;
+
 	"--app-background": string;
 	"--app-text": string;
 

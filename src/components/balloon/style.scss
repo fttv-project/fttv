@@ -7,6 +7,8 @@
 	color: var(--balloon-text);
 	margin: 0.5rem;
 	padding: 1rem;
+	font-size: 1.2rem;
+	min-width: 16rem;
 
 	&::after {
 		content: "";

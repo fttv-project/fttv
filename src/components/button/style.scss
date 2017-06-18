@@ -3,6 +3,7 @@
 	border: 0;
 	color: inherit;
 	cursor: pointer;
+	display: flex;
 	font: inherit;
 	font-size: 1rem;
 	line-height: normal;
@@ -31,10 +32,6 @@
 
 	&:hover, &:focus {
 		text-decoration: none;
-	}
-
-	img, svg {
-		vertical-align: middle;
 	}
 }
 
