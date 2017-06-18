@@ -27,7 +27,7 @@ module.exports = Object.assign(base, {
 				use: [
 					"react-hot-loader/webpack",
 					{
-						use: "ts-loader",
+						loader: "ts-loader",
 						options: {
 							transpileOnly: true
 						}

@@ -15,7 +15,7 @@ module.exports = {
 	loaders: {
 		css: [
 			{
-				use: "typings-for-css-modules-loader",
+				loader: "typings-for-css-modules-loader",
 				options: {
 					namedExport: true,
 					modules: true,
@@ -30,14 +30,14 @@ module.exports = {
 			},
 
 			{
-				use: "postcss-loader",
+				loader: "postcss-loader",
 				options: require("./postcss.config")
 			},
 
 			"resolve-url-loader",
 
 			{
-				use: "sass-loader",
+				loader: "sass-loader",
 				options: {
 					sourceMap: true,
 					includePaths: [resolve(__dirname, join("..", paths.src, paths.stylesName))]
@@ -48,7 +48,7 @@ module.exports = {
 			"file-loader",
 
 			{
-				use: "image-webpack-loader",
+				loader: "image-webpack-loader",
 				options: {
 					// Only optimize in production.
 					bypassOnDebug: true
