@@ -22,13 +22,13 @@ module.exports = Object.assign(base, {
 			{
 				test: /\.tsx?$/,
 				exclude: /node_modules/,
-				loader: "ts-loader"
+				use: "ts-loader"
 			},
 
 			{
 				enforce: "pre",
 				test: /\.scss$/,
-				loaders: ExtractTextPlugin.extract({
+				use: ExtractTextPlugin.extract({
 					fallback: "style-loader",
 					use: common.loaders.css
 				})

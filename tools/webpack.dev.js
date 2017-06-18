@@ -24,10 +24,10 @@ module.exports = Object.assign(base, {
 			{
 				test: /\.tsx?$/,
 				exclude: /node_modules/,
-				loaders: [
+				use: [
 					"react-hot-loader/webpack",
 					{
-						loader: "ts-loader",
+						use: "ts-loader",
 						options: {
 							transpileOnly: true
 						}
@@ -38,7 +38,7 @@ module.exports = Object.assign(base, {
 			{
 				enforce: "pre",
 				test: /\.scss$/,
-				loaders: ["style-loader"].concat(common.loaders.css)
+				use: ["style-loader"].concat(common.loaders.css)
 			}
 		])
 	},

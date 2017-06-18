@@ -27,12 +27,12 @@ module.exports = {
 		rules: [
 			{
 				test: /\.(woff|woff2|eot|ttf)$/i,
-				loader: "file-loader"
+				use: "file-loader"
 			},
 
 			{
 				test: /\.(gif|png|jpe?g|svg)$/i,
-				loaders: common.loaders.images
+				use: common.loaders.images
 			}
 		]
 	},
