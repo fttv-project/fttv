@@ -2,10 +2,10 @@ process.env.NODE_ENV = "production";
 const base = require("./webpack.base");
 const common = require("./common");
 const webpack = require("webpack");
-const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
+const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const SriPlugin = require("webpack-subresource-integrity");
+const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 
 module.exports = Object.assign(base, {
 	output: Object.assign(base.output, {
@@ -40,6 +40,10 @@ module.exports = Object.assign(base, {
 			"process.env.NODE_ENV": `"production"`
 		}),
 		new UglifyJsPlugin({
+			compress: {
+				drop_console: true,
+				warnings: false
+			},
 			extractComments: true,
 			sourceMap: process.env.PRODUCTION_DEBUG
 		}),
