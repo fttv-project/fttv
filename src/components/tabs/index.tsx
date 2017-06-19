@@ -25,7 +25,7 @@ export default class Tabs extends React.PureComponent<Props, State> {
 		const { activeIndex } = this.state;
 		return (
 			<ul className={css.labels}>
-				{children.map((child, index) => (
+				{React.Children.map(children, (child: React.ReactElement<any>, index) => (
 					<TabTitle
 						key={index}
 						activeIndex={activeIndex}
@@ -40,7 +40,7 @@ export default class Tabs extends React.PureComponent<Props, State> {
 	}
 
 	renderContent = () => {
-		return this.props.children[this.state.activeIndex];
+		return React.Children.toArray(this.props.children)[this.state.activeIndex];
 	}
 
 	handleTabSelected = (index: number) => {
@@ -56,7 +56,6 @@ export default class Tabs extends React.PureComponent<Props, State> {
 }
 
 interface Props extends React.Props<Tabs> {
-	children: JSX.Element[];
 	className: string;
 	containerRef: (element: HTMLElement) => void;
 	onSelect?: (index: number) => void;

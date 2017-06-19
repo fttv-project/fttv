@@ -19,7 +19,7 @@ import { Subject } from "rxjs/Subject";
 import { Subscription } from "rxjs/Subscription";
 
 export const pausable = <T> (pauser: Observable<boolean>, source: Observable<T>): Observable<T> => {
-	return pauser.switchMap(paused => paused ? Observable.never() : source);
+	return pauser.switchMap(paused => paused ? Observable.never<T>() : source);
 };
 
 export { Observable, BehaviorSubject, Subject, Subscription };
