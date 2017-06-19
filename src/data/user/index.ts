@@ -28,12 +28,12 @@ export const reducer: Reducer<State> = (state = initialState, action: Action): S
 	}
 };
 
-export const epic = (actions$: ActionsObservable<Action>, store$: MiddlewareAPI<GlobalState>) => actions$
+export const epic = (actions$: ActionsObservable<Action>, store: MiddlewareAPI<GlobalState>) => actions$
 	.ofType(ActionTypes.REQUEST_DETAILS, ActionTypes.SET_ACCESS_TOKEN)
 	.switchMap(action => {
 		switch (action.type) {
 			case ActionTypes.REQUEST_DETAILS: {
-				return getUser(store$.getState().user.accessToken!)
+				return getUser(store.getState().user.accessToken!)
 					.map(details => setDetails(details))
 					.catch(err => [addError(err.message || err)]);
 			}
