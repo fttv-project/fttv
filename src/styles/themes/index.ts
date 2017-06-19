@@ -15,10 +15,10 @@ export interface ThemeProperties {
 	"--button-background-lighter": string;
 	"--button-shadow": string;
 
+	"--game-viewer-text": string;
+
 	"--navigation-bar-background": string;
 	"--navigation-bar-text": string;
-
-	"--viewer-text": string;
 
 	"--tab-text-active": string;
 	"--tab-text-inactive": string;

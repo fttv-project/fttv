@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import { Action, Dispatch, bindActionCreators } from "redux";
 
 import { State } from "data";
-import { loadNext, unload } from "data/games";
+import { loadNext } from "data/games";
 
 import { TopGame } from "common/twitch-api/games";
 import { returnOf } from "common/util";
@@ -35,7 +35,6 @@ class Directory extends React.Component<Props & InjectedTranslateProps, OwnState
 			<Tabs
 				containerRef={this.setScrollingElement}
 				className={style.directoryContainer}
-				onSelect={this.handleTabChange}
 			>
 				<Tab label={t("tabs.games")}>
 					{this.renderGames()}
@@ -83,14 +82,6 @@ class Directory extends React.Component<Props & InjectedTranslateProps, OwnState
 		);
 	}
 
-	private handleTabChange = (activeTabIndex: number) => {
-		if (activeTabIndex !== 0) {
-			this.props.unload();
-		} else {
-			this.props.loadNext(60);
-		}
-	}
-
 	private loadGames = ({ elementsHint }: { elementsHint: number }) => {
 		const { loadNext, isLoading } = this.props;
 		const elements = elementsHint || 40;
@@ -117,8 +108,7 @@ const mapStateToProps = (state: State) => ({
 });
 
 const mapDispatchToProps = (dispatch: Dispatch<Action>) => bindActionCreators({
-	loadNext,
-	unload
+	loadNext
 }, dispatch);
 
 type Props = typeof StateProps & typeof DispatchProps;

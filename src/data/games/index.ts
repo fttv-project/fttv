@@ -6,7 +6,7 @@ import { getTopGames } from "common/twitch-api/games";
 
 import { Reducer, State as GlobalState } from "data";
 import { concatDedupe } from "data/common";
-import { Action, ActionTypes, FetchTopAction, loadError, setTop, unload } from "./actions";
+import { Action, ActionTypes, FetchTopAction, loadError, setTop } from "./actions";
 import { State } from "./model";
 
 export const initialState: State = {

@@ -17,10 +17,10 @@ export default {
 		"--button-background-lighter": "#7d5bbe",
 		"--button-shadow": "#7d5bbe",
 
+		"--game-viewer-text": "#666",
+
 		"--navigation-bar-background": "#4b367c",
 		"--navigation-bar-text": "#fff",
-
-		"--viewer-text": "#666",
 
 		"--tab-text-active": "#d3d3d3",
 		"--tab-text-inactive": "#d3d3d3",
