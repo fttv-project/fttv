@@ -4,9 +4,9 @@ import React from "react";
 import { render } from "react-dom";
 import { Provider } from "react-redux";
 import { I18nextProvider } from "react-i18next";
-import { AppContainer } from "react-hot-loader";
 
 import i18n from "common/i18n";
+import ReactHotLoader from "components/react-hot-loader";
 import configureStore from "store/configureStore";
 import Router from "router";
 
@@ -19,13 +19,13 @@ const mountElement = document.getElementById("mount");
 
 function renderRoot() {
 	render(
-		<AppContainer>
+		<ReactHotLoader>
 			<I18nextProvider i18n={i18n}>
 				<Provider store={store}>
 					<Router history={history} />
 				</Provider>
 			</I18nextProvider>
-		</AppContainer>,
+		</ReactHotLoader>,
 		mountElement
 	);
 }
