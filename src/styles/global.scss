@@ -8,6 +8,7 @@
 
 html {
 	font-size: 62.5%;
+	text-size-adjust: 100%;
 }
 
 body {
@@ -22,6 +23,19 @@ a, a:visited, a:link {
 
 a:hover, a:focus, a:active {
 	text-decoration: underline;
+}
+
+h3 {
+	font-size: 2.4rem;
+	line-height: 3rem;
+	margin-bottom: 1rem;
+	font-weight: 400;
+}
+
+.ellipsis {
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
 }
 
 }

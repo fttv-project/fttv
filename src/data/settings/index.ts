@@ -1,6 +1,8 @@
 import { ActionsObservable } from "redux-observable";
 
 import { Observable } from "common/rxjs";
+
+import { Reducer } from "data";
 import { CommonActionTypes } from "data/common/actions";
 import lightTheme from "styles/themes/light";
 
@@ -11,7 +13,7 @@ export const initialState: State = {
 	theme: lightTheme
 };
 
-export const reducer = (state = initialState, action: Action): State => {
+export const reducer: Reducer<State> = (state = initialState, action: Action): State => {
 	switch (action.type) {
 		case ActionTypes.SET_THEME: {
 			return { ...state, theme: action.payload.theme };

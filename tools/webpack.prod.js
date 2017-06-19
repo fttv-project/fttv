@@ -4,7 +4,7 @@ const common = require("./common");
 const webpack = require("webpack");
 const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
-const BabiliWebpackPlugin = require("babili-webpack-plugin");
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const SriPlugin = require("webpack-subresource-integrity");
 
 module.exports = Object.assign(base, {
@@ -39,11 +39,9 @@ module.exports = Object.assign(base, {
 		new webpack.DefinePlugin({
 			"process.env.NODE_ENV": `"production"`
 		}),
-		new BabiliWebpackPlugin({
-			removeConsole: true,
-			removeDebugger: true
-		}, {
-			comments: false
+		new UglifyJsPlugin({
+			extractComments: true,
+			sourceMap: process.env.PRODUCTION_DEBUG
 		}),
 		new ExtractTextPlugin(process.env.PRODUCTION_DEBUG ? "[name].css" : "[contenthash:8].css"),
 		new SriPlugin({
