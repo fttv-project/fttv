@@ -28,6 +28,8 @@ export const removeUndefined = (value: { [key: string]: any }) => {
 	return value;
 };
 
+export const idleCallback = (window as any).requestIdleCallback || ((cb: () => void) => setTimeout(cb, 10));
+
 export const elementResize = (element: HTMLElement) => new Observable<HTMLElement>(observer => {
 	resizeDetector.listenTo(element, e => observer.next(e));
 	return () => resizeDetector.uninstall(element);
