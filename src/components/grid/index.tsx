@@ -4,7 +4,7 @@ import React from "react";
 import { GridCellProps } from "./cell";
 import css from "./index.scss";
 
-export default class Grid extends React.PureComponent<OwnProps, {}> {
+export default class Grid extends React.PureComponent<Props, {}> {
 	render() {
 		const { cell: Cell, gridClass, items, targetColumnWidth, registerLoader } = this.props;
 		return (
@@ -21,7 +21,7 @@ export default class Grid extends React.PureComponent<OwnProps, {}> {
 	}
 }
 
-interface OwnProps {
+interface Props {
 	items: any[];
 	gridClass?: string;
 	targetColumnWidth: string;

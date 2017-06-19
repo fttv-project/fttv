@@ -5,7 +5,7 @@ import { elementResize } from "common/util";
 
 const wrapperStyle = { width: "100%", height: "100%", position: "relative" as "relative" };
 
-export default class InfiniteScroll extends React.PureComponent<OwnProps, State> {
+export default class InfiniteScroll extends React.PureComponent<Props, OwnState> {
 	private pauseStream: BehaviorSubject<boolean>;
 	private componentDestroyed: Subject<{}>;
 
@@ -16,7 +16,7 @@ export default class InfiniteScroll extends React.PureComponent<OwnProps, State>
 	private child: HTMLElement | undefined;
 	private wrapper: HTMLElement | undefined;
 
-	constructor(props: OwnProps) {
+	constructor(props: Props) {
 		super(props);
 		this.pauseStream = new BehaviorSubject(this.props.isLoading);
 		this.pause$ = this.pauseStream.distinctUntilChanged();
@@ -27,7 +27,7 @@ export default class InfiniteScroll extends React.PureComponent<OwnProps, State>
 		this.setupObservables(this.props);
 	}
 
-	componentWillReceiveProps(nextProps: OwnProps) {
+	componentWillReceiveProps(nextProps: Props) {
 		if (this.props.items !== nextProps.items) {
 			this.pauseStream.next(false);
 		}
@@ -51,7 +51,7 @@ export default class InfiniteScroll extends React.PureComponent<OwnProps, State>
 		);
 	}
 
-	private setupObservables = (props: OwnProps) => {
+	private setupObservables = (props: Props) => {
 		this.setupResize();
 		this.setupScroll(props);
 	}
@@ -80,7 +80,7 @@ export default class InfiniteScroll extends React.PureComponent<OwnProps, State>
 		});
 	}
 
-	private setupScroll = (props: OwnProps) => {
+	private setupScroll = (props: Props) => {
 		const { scrollElement, threshold } = props;
 		if (this.scroll || !scrollElement) {
 			return;
@@ -145,7 +145,7 @@ interface ResizePair {
 	childHeight: number;
 }
 
-interface OwnProps {
+interface Props {
 	children: (props: { items: any[], registerChild: (element: HTMLElement) => void }) => React.ReactNode;
 	items: any[];
 	isLoading: boolean;
@@ -154,6 +154,6 @@ interface OwnProps {
 	threshold: number;
 }
 
-interface State {
+interface OwnState {
 	wrapper: HTMLElement;
 }

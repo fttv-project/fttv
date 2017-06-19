@@ -19,7 +19,7 @@ import GameCell from "components/grid/cell/game";
 import style from "./index.scss";
 
 @translate("directory")
-class Directory extends React.Component<Props & InjectedTranslateProps, DirectoryState> {
+class Directory extends React.Component<Props & InjectedTranslateProps, OwnState> {
 	constructor(props: Props) {
 		super(props);
 		this.state = { scrollElement: null! };
@@ -119,14 +119,13 @@ const mapStateToProps = (state: State) => ({
 const mapDispatchToProps = (dispatch: Dispatch<Action>) => bindActionCreators({
 	loadNext,
 	unload
-
 }, dispatch);
 
 type Props = typeof StateProps & typeof DispatchProps;
 const StateProps = returnOf(mapStateToProps);
 const DispatchProps = returnOf(mapDispatchToProps);
 
-interface DirectoryState {
+interface OwnState {
 	scrollElement: HTMLElement;
 }
 
