@@ -16,5 +16,5 @@ declare module "element-resize-detector" {
 	}
 
 	const ElementResizeDetector: ElementResizeDetector.Detector;
-	export = ElementResizeDetector;
+	export default ElementResizeDetector;
 }

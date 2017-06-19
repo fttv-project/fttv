@@ -18,13 +18,6 @@ import { BehaviorSubject } from "rxjs/BehaviorSubject";
 import { Subject } from "rxjs/Subject";
 import { Subscription } from "rxjs/Subscription";
 
-import resizeDetector from "./resize-detector";
-
-export const elementResize = (element: HTMLElement) => new Observable<HTMLElement>(observer => {
-	resizeDetector.listenTo(element, e => observer.next(e));
-	return () => resizeDetector.uninstall(element);
-});
-
 export const pausable = <T> (pauser: Observable<boolean>, source: Observable<T>): Observable<T> => {
 	return pauser.switchMap(paused => paused ? Observable.never() : source);
 };

@@ -1,6 +1,7 @@
 import React from "react";
 
-import { BehaviorSubject, Observable, Subject, Subscription, elementResize, pausable } from "common/rxjs";
+import { BehaviorSubject, Observable, Subject, Subscription, pausable } from "common/rxjs";
+import { elementResize } from "common/util";
 
 const wrapperStyle = { width: "100%", height: "100%", position: "relative" as "relative" };
 

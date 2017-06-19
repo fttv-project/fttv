@@ -1,4 +1,4 @@
-import * as ElementResizeDetector from "element-resize-detector";
+import ElementResizeDetector from "element-resize-detector";
 
 let instance: ElementResizeDetector.Detector | undefined;
 if (!instance) {
