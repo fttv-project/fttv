@@ -3,7 +3,8 @@ import { ActionsObservable } from "redux-observable";
 
 import "common/rxjs";
 import { getUser } from "common/twitch-api";
-import { State as GlobalState } from "data";
+
+import { Reducer, State as GlobalState } from "data";
 import { add as addError } from "data/errors";
 
 import { Action, ActionTypes, requestDetails, setDetails } from "./actions";
@@ -13,7 +14,7 @@ export const initialState: State = {
 	scope: []
 };
 
-export const reducer = (state = initialState, action: Action): State => {
+export const reducer: Reducer<State> = (state = initialState, action: Action): State => {
 	switch (action.type) {
 		case ActionTypes.SET_ACCESS_TOKEN: {
 			return { ...state, accessToken: action.payload.accessToken };

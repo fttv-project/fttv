@@ -39,6 +39,7 @@
 		"no-empty": false,
 		"no-empty-interface": false,
 		"no-namespace": false,
+		"no-misused-new": false,
 		"no-object-literal-type-assertion": false,
 		"prefer-conditional-expression": false,
 

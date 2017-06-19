@@ -25,7 +25,7 @@ class UserInfo extends React.Component<Props, OwnState> {
 				transparent
 				noFocus
 			>
-				<img className={style.avatar} src={details.logo.replace("300x300", "70x70")} />
+				<img className={style.avatar} src={details.logo && details.logo.replace("300x300", "70x70")} />
 				<div className={style.info}>
 					<p className={style.displayName}>{details.display_name}</p>
 					<div className={style.status}>

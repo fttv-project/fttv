@@ -1,3 +1,6 @@
+import resizeDetector from "./resize-detector";
+import { Observable } from "./rxjs";
+
 export const returnOf = <A, T>(_: (a: A) => T): T => null!;
 
 export const crypto = window.crypto;
@@ -24,3 +27,8 @@ export const removeUndefined = (value: { [key: string]: any }) => {
 	}
 	return value;
 };
+
+export const elementResize = (element: HTMLElement) => new Observable<HTMLElement>(observer => {
+	resizeDetector.listenTo(element, e => observer.next(e));
+	return () => resizeDetector.uninstall(element);
+});

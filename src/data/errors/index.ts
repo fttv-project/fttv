@@ -1,7 +1,7 @@
 import { ActionsObservable } from "redux-observable";
-
 import "common/rxjs";
 
+import { Reducer } from "data";
 import { Action, ActionTypes, remove } from "./actions";
 import { State } from "./model";
 
@@ -10,7 +10,7 @@ export const initialState: State = {
 	messages: []
 };
 
-export const reducer = (state = initialState, action: Action): State => {
+export const reducer: Reducer<State> = (state = initialState, action: Action): State => {
 	switch (action.type) {
 		case ActionTypes.ADD: {
 			return {...state, messages: state.messages.concat(action.payload.message)};

@@ -9,6 +9,7 @@ import { AppContainer } from "react-hot-loader";
 import i18n from "common/i18n";
 import configureStore from "store/configureStore";
 import Router from "router";
+
 import "styles/global.scss";
 
 const history = createHistory();

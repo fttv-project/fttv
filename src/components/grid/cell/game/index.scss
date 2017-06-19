@@ -1,0 +1,50 @@
+.cell {
+	width: 100%;
+	display: block;
+	cursor: pointer;
+
+	&:hover {
+		text-decoration: none;
+		.title {
+			color: var(--app-text-accent);
+		}
+	}
+}
+
+.box {
+	width: 100%;
+	position: relative;
+	padding-bottom: 140%;
+}
+
+.boxImage {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	display: block;
+	width: 100%;
+}
+
+.body {
+	width: 100%;
+	padding: 0.5rem 0 0;
+}
+
+.title, .viewers {
+	width: 100%;
+	line-height: 2rem;
+	align-self: flex-start;
+}
+
+.title {
+	color: var(--app-text);
+	margin-bottom: 0;
+	font-size: 1.4rem;
+}
+
+.viewers {
+	color: var(--viewer-text);
+	font-size: 1.2rem;
+}
