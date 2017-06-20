@@ -1,12 +1,14 @@
 import { MiddlewareAPI } from "redux";
 import { ActionsObservable } from "redux-observable";
-import { Observable } from "common/rxjs";
 
+import "common/rxjs";
 import { getTopGames } from "common/twitch-api/games";
 
 import { Reducer, State as GlobalState } from "data";
+import { add as addError } from "data/errors";
 import { concatDedupe } from "data/common";
-import { Action, ActionTypes, FetchTopAction, loadError, setTop } from "./actions";
+
+import { Action, ActionTypes, LoadNextAction, setTop } from "./actions";
 import { State } from "./model";
 
 export const initialState: State = {
@@ -16,7 +18,6 @@ export const initialState: State = {
 };
 
 export const reducer: Reducer<State> = (state = initialState, action: Action): State => {
-	console.log("reducer", action.type);
 	switch (action.type) {
 		case ActionTypes.LOAD_NEXT: {
 			return { ...state, isLoading: true };
@@ -32,19 +33,15 @@ export const reducer: Reducer<State> = (state = initialState, action: Action): S
 			};
 		}
 
-		case ActionTypes.LOAD_ERROR: {
-			return { ...state, isLoading: false, ...action.payload };
-		}
-
 		case ActionTypes.UNLOAD: {
-			return { ...initialState, isLoading: false };
+			return initialState;
 		}
 
 		default: return state;
 	}
 };
 
-export const epic = (actions$: ActionsObservable<FetchTopAction>, store: MiddlewareAPI<GlobalState>) => actions$
+export const epic = (actions$: ActionsObservable<LoadNextAction>, store: MiddlewareAPI<GlobalState>) => actions$
 	.ofType(ActionTypes.LOAD_NEXT)
 	.switchMap(action => {
 		const offset = store.getState().games.offset;
@@ -52,7 +49,7 @@ export const epic = (actions$: ActionsObservable<FetchTopAction>, store: Middlew
 		return getTopGames({ limit, offset })
 			.takeUntil(actions$.ofType(ActionTypes.UNLOAD))
 			.map(topGames => setTop(topGames))
-			.catch(() => Observable.of(loadError()));
+			.catch(err => [addError(err.message || err)]);
 	});
 
 export * from "./actions";

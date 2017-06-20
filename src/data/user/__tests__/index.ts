@@ -2,8 +2,8 @@ import { ActionsObservable } from "redux-observable";
 import nock from "nock";
 
 import { BASE_URL } from "common/twitch-api";
-import { epic, initialState, reducer, requestDetails, setAccessToken, setDetails } from "../";
 import { add as addError } from "data/errors";
+import { epic, initialState, reducer, requestDetails, setAccessToken, setDetails } from "../";
 
 const store$ = {
 	dispatch: null!,

@@ -4,12 +4,11 @@ import { TopGames } from "./model";
 
 export const enum ActionTypes {
 	LOAD_NEXT = "games/LOAD_NEXT",
-	UNLOAD = "games/unload",
 	SET_TOP = "games/SET_TOP",
-	LOAD_ERROR = "games/LOAD_ERROR"
+	UNLOAD = "games/UNLOAD"
 }
 
-export interface FetchTopAction extends TypedAction<ActionTypes.LOAD_NEXT> {
+export interface LoadNextAction extends TypedAction<ActionTypes.LOAD_NEXT> {
 	payload: {
 		limit: number;
 	};
@@ -21,16 +20,12 @@ export interface SetTopAction extends TypedAction<ActionTypes.SET_TOP> {
 	};
 }
 
-export interface LoadErrorAction extends TypedAction<ActionTypes.LOAD_ERROR> {
-}
-
 export interface UnloadAction extends TypedAction<ActionTypes.UNLOAD> {
 }
 
 export type Action =
-	| FetchTopAction
+	| LoadNextAction
 	| SetTopAction
-	| LoadErrorAction
 	| UnloadAction;
 
 export const loadNext = (limit: number): Action => ({
@@ -41,10 +36,6 @@ export const loadNext = (limit: number): Action => ({
 export const setTop = (topGames: TopGames): Action => ({
 	type: ActionTypes.SET_TOP,
 	payload: { topGames }
-});
-
-export const loadError = (): Action => ({
-	type: ActionTypes.LOAD_ERROR
 });
 
 export const unload = (): Action => ({
