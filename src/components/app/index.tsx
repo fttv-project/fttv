@@ -5,19 +5,19 @@ import { Route } from "react-router";
 import { connect } from "react-redux";
 
 import Loadable from "common/loadable";
-import { idleCallback } from "common/util";
+import { idleCallback, returnOf } from "common/util";
 import { State } from "data";
-import { Theme } from "data/settings";
-import Home from "pages/home";
 import NavigationBar from "components/navigation-bar";
 import manifest from "assets/static/manifest.json";
 import style from "./style.scss";
 
+const Home = Loadable(() => System.import("pages/home"));
 const Auth = Loadable(() => System.import("pages/auth"));
 const Settings = Loadable(() => System.import("pages/settings"));
 const Directory = Loadable(() => System.import("pages/directory"));
 
 const preloadedRoutes = [
+	Home,
 	Directory,
 	Auth,
 	Settings
@@ -58,16 +58,15 @@ class App extends React.Component<Props, {}> {
 	}
 }
 
-type Props = StoreProps;
+const mapStateToProps = (state: State) => ({
+	theme: state.settings.theme
+});
 
-interface StoreProps {
-	theme: Theme;
-}
+type Props = typeof StateProps;
+const StateProps = returnOf(mapStateToProps);
 
-export default connect<StoreProps, {}, {}>(
-	(state: State) => ({
-		theme: state.settings.theme
-	}),
+export default connect<typeof StateProps, {}, {}>(
+	mapStateToProps,
 	null,
 	null,
 	{ pure: false }
