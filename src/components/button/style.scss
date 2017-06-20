@@ -1,14 +1,14 @@
 .button {
 	background: var(--button-background);
 	border: 0;
-	color: inherit;
+	color: inherit !important;
 	cursor: pointer;
 	display: flex;
 	font: inherit;
-	font-size: 1rem;
+	font-size: 1.2rem;
 	line-height: normal;
 	overflow: visible;
-	padding: 0.8rem;
+	padding: 1rem;
 	transition: background 120ms ease, box-shadow 120ms ease, color 120ms ease;
 	-webkit-appearance: none;
 
