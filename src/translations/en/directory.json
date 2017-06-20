@@ -5,5 +5,12 @@
 		"popular": "Popular",
 		"creative": "Creative",
 		"discover": "Discover"
+	},
+	"titles": {
+		"games": "All Games",
+		"communities": "All Communities",
+		"popular": "Top Channels",
+		"creative": "Creative",
+		"discover": ""
 	}
 }

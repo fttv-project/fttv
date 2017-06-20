@@ -1,6 +1,7 @@
 import React from "react";
+import Helmet from "react-helmet";
+
 import { InjectedTranslateProps, translate } from "react-i18next";
-import Tabs, { Tab } from "components/tabs";
 import { connect } from "react-redux";
 import { Action, Dispatch, bindActionCreators } from "redux";
 
@@ -11,12 +12,18 @@ import { TopGame } from "common/twitch-api/games";
 import { returnOf } from "common/util";
 
 import InfiniteScroll from "components/infinite-scroll";
-
+import Tabs, { Tab } from "components/tabs";
 import Grid from "components/grid";
 import { GridCellProps } from "components/grid/cell";
 import GameCell from "components/grid/cell/game";
 
 import style from "./index.scss";
+
+const withTitle = (title: string, children: React.ReactNode) => (
+	<Helmet title={title}>
+		{children}
+	</Helmet>
+);
 
 @translate("directory")
 class Directory extends React.Component<Props & InjectedTranslateProps, OwnState> {
@@ -37,23 +44,23 @@ class Directory extends React.Component<Props & InjectedTranslateProps, OwnState
 				className={style.directoryContainer}
 			>
 				<Tab label={t("tabs.games")}>
-					{this.renderGames()}
+					{withTitle(t("titles.games"), this.renderGames())}
 				</Tab>
 
 				<Tab label={t("tabs.communities")}>
-					<div>Communities</div>
+					{withTitle(t("titles.communities"), <div>Communities</div>)}
 				</Tab>
 
 				<Tab label={t("tabs.popular")}>
-					<div>Popular</div>
+					{withTitle(t("titles.popular"), <div>Popular</div>)}
 				</Tab>
 
 				<Tab label={t("tabs.creative")}>
-					<div>Creative</div>
+					{withTitle(t("titles.creative"), <div>Creative</div>)}
 				</Tab>
 
 				<Tab label={t("tabs.discover")}>
-					<div>Discover</div>
+					{withTitle(t("titles.discover"), <div>Discover</div>)}
 				</Tab>
 			</Tabs>
 		);
