@@ -1,5 +1,4 @@
 import React from "react";
-import Helmet from "react-helmet";
 
 import { InjectedTranslateProps, translate } from "react-i18next";
 import { connect } from "react-redux";
@@ -19,12 +18,6 @@ import GameCell from "components/grid/cell/game";
 
 import style from "./index.scss";
 
-const withTitle = (title: string, children: React.ReactNode) => (
-	<Helmet title={title}>
-		{children}
-	</Helmet>
-);
-
 @translate("directory")
 class Directory extends React.Component<Props & InjectedTranslateProps, OwnState> {
 	constructor(props: Props) {
@@ -43,24 +36,24 @@ class Directory extends React.Component<Props & InjectedTranslateProps, OwnState
 				containerRef={this.setScrollingElement}
 				className={style.directoryContainer}
 			>
-				<Tab label={t("tabs.games")}>
-					{withTitle(t("titles.games"), this.renderGames())}
+				<Tab label={t("tabs.games")} title={t("titles.games")}>
+					{this.renderGames()}
 				</Tab>
 
-				<Tab label={t("tabs.communities")}>
-					{withTitle(t("titles.communities"), <div>Communities</div>)}
+				<Tab label={t("tabs.communities")} title={t("titles.communities")}>
+					<div>Communities</div>
 				</Tab>
 
-				<Tab label={t("tabs.popular")}>
-					{withTitle(t("titles.popular"), <div>Popular</div>)}
+				<Tab label={t("tabs.popular")} title={t("titles.popular")}>
+					<div>Popular</div>
 				</Tab>
 
-				<Tab label={t("tabs.creative")}>
-					{withTitle(t("titles.creative"), <div>Creative</div>)}
+				<Tab label={t("tabs.creative")} title={t("titles.creative")}>
+					<div>Creative</div>
 				</Tab>
 
-				<Tab label={t("tabs.discover")}>
-					{withTitle(t("titles.discover"), <div>Discover</div>)}
+				<Tab label={t("tabs.discover")} title={t("titles.discover")}>
+					<div>Discover</div>
 				</Tab>
 			</Tabs>
 		);
