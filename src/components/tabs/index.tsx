@@ -13,7 +13,7 @@ export default class Tabs extends React.PureComponent<Props, State> {
 	render() {
 		const { className, containerRef } = this.props;
 		return (
-			<div className={className} ref={containerRef}>
+			<div ref={containerRef} className={className}>
 				{this.renderLabels()}
 				{this.renderContent()}
 			</div>
@@ -57,7 +57,7 @@ export default class Tabs extends React.PureComponent<Props, State> {
 
 interface Props extends React.Props<Tabs> {
 	className: string;
-	containerRef: (element: HTMLElement) => void;
+	containerRef: React.Ref<HTMLDivElement>;
 	onSelect?: (index: number) => void;
 }
 

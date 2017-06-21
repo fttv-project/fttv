@@ -7,7 +7,7 @@ const wrapperStyle = { width: "100%", height: "100%", position: "relative" as "r
 
 export default class InfiniteScroll extends React.PureComponent<Props, OwnState> {
 	private pauseStream: BehaviorSubject<boolean>;
-	private componentDestroyed: Subject<{}>;
+	private componentDestroyed: Subject<any>;
 
 	private pause$: Observable<boolean>;
 	private resize: Subscription | undefined;
@@ -110,8 +110,8 @@ export default class InfiniteScroll extends React.PureComponent<Props, OwnState>
 		this.setupResize();
 	}
 
-	private setWrapper = (element: HTMLElement) => {
-		this.wrapper = element;
+	private setWrapper = (element: HTMLElement | null) => {
+		this.wrapper = element!;
 		this.setupResize();
 	}
 
@@ -146,7 +146,7 @@ interface ResizePair {
 }
 
 interface Props {
-	children: (props: { items: any[], registerChild: (element: HTMLElement) => void }) => React.ReactNode;
+	children: (props: { items: any[], registerChild: React.Ref<HTMLElement> }) => React.ReactNode;
 	items: any[];
 	isLoading: boolean;
 	loadItems: (props: { elementsHint?: number }) => void;

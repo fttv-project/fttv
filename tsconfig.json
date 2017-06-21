@@ -6,6 +6,7 @@
 		"downlevelIteration": true,
 
 		"baseUrl": "./src",
+		"outDir": "./dist",
 
 		"jsx": "react",
 		"lib": [

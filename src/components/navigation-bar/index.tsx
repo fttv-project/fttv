@@ -34,7 +34,7 @@ class NavigationBar extends React.Component<Props, OwnState> {
 
 	toggleMore = () => this.setState({ moreOpen: !this.state.moreOpen });
 
-	setListRef = (ref: HTMLElement) => this.listRef = ref;
+	setListRef = (ref: HTMLElement | null) => this.listRef = ref!;
 
 	render() {
 		const t = this.props.t!;

@@ -25,6 +25,6 @@ interface Props {
 	items: any[];
 	gridClass?: string;
 	targetColumnWidth: string;
-	registerLoader: (element: HTMLElement) => void;
+	registerLoader: React.Ref<HTMLElement>;
 	cell: (props: GridCellProps<any>) => JSX.Element;
 }

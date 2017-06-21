@@ -17,7 +17,7 @@ const store = configureStore(history);
 
 const mountElement = document.getElementById("mount");
 
-function renderRoot() {
+const renderRoot = () => {
 	render(
 		<ReactHotLoader>
 			<I18nextProvider i18n={i18n}>
@@ -28,7 +28,7 @@ function renderRoot() {
 		</ReactHotLoader>,
 		mountElement
 	);
-}
+};
 
 renderRoot();
 

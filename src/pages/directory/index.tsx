@@ -98,8 +98,8 @@ class Directory extends React.Component<Props & InjectedTranslateProps, OwnState
 		}
 	}
 
-	private setScrollingElement = (scrollElement: HTMLElement) => {
-		this.setState({ ...this.state, scrollElement });
+	private setScrollingElement = (scrollElement: HTMLElement | null) => {
+		this.setState({ ...this.state, scrollElement: scrollElement! });
 	}
 
 	private renderCell = ({ item, index }: GridCellProps<TopGame>) => {
