@@ -26,7 +26,7 @@ class Directory extends React.Component<Props & InjectedTranslateProps, OwnState
 	}
 
 	componentWillMount() {
-		this.props.loadNext(60);
+		if (this.props.topGames.top.length <= 0) this.props.loadNext(60);
 	}
 
 	render() {
