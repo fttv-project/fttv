@@ -40,8 +40,7 @@ class App extends React.Component<Props, {}> {
 					<Route exact path="/" component={Home} />
 					<Route exact path="/auth" component={Auth} />
 					<Route exact path="/settings" component={Settings} />
-					<Route exact path="/directory" component={Directory} />
-					<Route exact path="/directory/following" component={Directory} />
+					<Route exact path="/directory/:type?/:name?" component={Directory} />
 				</div>
 			</main>
 		);

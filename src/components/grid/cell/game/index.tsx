@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import classnames from "classnames";
 import { Interpolate, translate } from "react-i18next";
 
@@ -12,7 +13,7 @@ export default class GameCell extends React.PureComponent<GridCellProps<TopGame>
 		const { item } = this.props;
 
 		return (
-			<a className={style.cell}>
+			<Link to={`/directory/game/${item.game.name}`} className={style.cell}>
 				<figure className={style.box}>
 					<img className={style.boxImage} src={item.game.box.large} />
 				</figure>
@@ -24,7 +25,7 @@ export default class GameCell extends React.PureComponent<GridCellProps<TopGame>
 						<Interpolate i18nKey="card.viewers" value={item.viewers.toLocaleString()} />
 					</p>
 				</div>
-			</a>
+			</Link>
 		);
 	}
 }
