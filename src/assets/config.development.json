@@ -2,6 +2,7 @@
 	"twitch": {
 		"api_version": "5",
 		"client_id": "7zm5wcesxfwxjba0rdlpsswgll4m8f",
+		"force_verify": true,
 		"redirect_uri": "http://localhost:3000/auth",
 		"scope": [
 			"user_read"

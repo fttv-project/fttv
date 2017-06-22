@@ -13,6 +13,7 @@ export const getHeaders = (accessToken: string) => ({
 export const getAuthorizeUrl = (state: string) => {
 	const options = {
 		client_id: config.twitch.client_id,
+		force_verify: config.twitch.force_verify,
 		redirect_uri: config.twitch.redirect_uri,
 		response_type: "token",
 		scope: config.twitch.scope.join(" "),
