@@ -3,9 +3,9 @@ import { connect } from "react-redux";
 import { InjectedTranslateProps, translate } from "react-i18next";
 import { NavLink } from "react-router-dom";
 
+import Loadable from "common/loadable";
 import { returnOf } from "common/util";
 import { State } from "data";
-import AuthButtons from "components/auth-buttons";
 import Balloon, { BalloonList, ignoreCloseClass } from "components/balloon";
 import Button from "components/button";
 import UserInfo from "components/user-info";
@@ -13,8 +13,9 @@ import UserInfo from "components/user-info";
 import moreIcon from "./more.svg";
 import style from "./style.scss";
 
-type Item = [string, string];
+const AuthButtons = Loadable(() => System.import("components/auth-buttons"));
 
+type Item = [string, string];
 const mapItemsToLinks = (items: Item[]) => items
 	.map(item => {
 		const title = item[0];

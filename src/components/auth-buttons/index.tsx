@@ -41,7 +41,6 @@ class AuthButtons extends React.Component<Props, {}> {
 
 	render() {
 		const t = this.props.t!;
-
 		return (
 			<div style={{display: "flex"}}>
 				<Button onClick={this.openWindow} style={{marginRight: "1rem"}}>
