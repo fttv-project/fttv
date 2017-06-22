@@ -31,23 +31,22 @@ class App extends React.Component<Props, {}> {
 	render() {
 		const { theme } = this.props;
 		return (
-			<CustomProperties global properties={theme.properties}>
-				<main className={style.container}>
-					<Helmet
-						defaultTitle={manifest.short_name}
-						titleTemplate={`%s - ${manifest.short_name}`}
-					/>
+			<main className={style.container}>
+				<CustomProperties global properties={theme.properties} />
+				<Helmet
+					defaultTitle={manifest.short_name}
+					titleTemplate={`%s - ${manifest.short_name}`}
+				/>
 
-					<NavigationBar />
-					<div className={style.page}>
-						<Route exact path="/" component={Home} />
-						<Route exact path="/auth" component={Auth} />
-						<Route exact path="/settings" component={Settings} />
-						<Route exact path="/directory" component={Directory} />
-						<Route exact path="/directory/following" component={Directory} />
-					</div>
-				</main>
-			</CustomProperties>
+				<NavigationBar />
+				<div className={style.page}>
+					<Route exact path="/" component={Home} />
+					<Route exact path="/auth" component={Auth} />
+					<Route exact path="/settings" component={Settings} />
+					<Route exact path="/directory" component={Directory} />
+					<Route exact path="/directory/following" component={Directory} />
+				</div>
+			</main>
 		);
 	}
 
