@@ -74,7 +74,12 @@ class NavigationBar extends React.Component<Props, OwnState> {
 					))}
 
 					<li className={style.more}>
-						<Button transparent className={ignoreCloseClass} onClick={this.toggleMore}>
+						<Button
+							transparent
+							className={ignoreCloseClass}
+							onClick={this.toggleMore}
+							title={t("navItems.more")}
+						>
 							<img src={moreIcon} />
 						</Button>
 

@@ -2,7 +2,8 @@
 	"navItems": {
 		"following": "Following",
 		"browse": "Browse",
-		"tryPrime": "Try Prime"
+		"tryPrime": "Try Prime",
+		"more": "More"
 	},
 	"balloonItems": {
 		"about": "About",
