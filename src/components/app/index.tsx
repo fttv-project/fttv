@@ -17,10 +17,7 @@ const Settings = Loadable(() => System.import("pages/settings"));
 const Directory = Loadable(() => System.import("pages/directory"));
 
 const preloadedRoutes = [
-	Home,
-	Directory,
-	Auth,
-	Settings
+	Directory
 ];
 
 class App extends React.Component<Props, {}> {
