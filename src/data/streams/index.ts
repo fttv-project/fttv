@@ -56,7 +56,7 @@ export const epic = (actions$: ActionsObservable<LoadGameAction>, store: Middlew
 		const game = store.getState().streams.games.get(action.payload.gameTitle);
 		const offset = game ? game.offset : 0;
 		const limit = action.payload.limit;
-		return getLiveStreams({ limit, offset })
+		return getLiveStreams({ limit, offset, game: action.payload.gameTitle })
 			.map(result => setGame(action.payload.gameTitle, result))
 			.catch(err => [addError(err.message || err)]);
 	});
