@@ -3,8 +3,6 @@ import { Theme } from "styles/themes";
 export default {
 	name: "light",
 	properties: {
-		"--global-link": "#6441a4",
-
 		"--app-background": "#fff",
 		"--app-text": "#19171c",
 		"--app-text-accent": "#6441a4",

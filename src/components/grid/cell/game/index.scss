@@ -3,11 +3,8 @@
 	display: block;
 	cursor: pointer;
 
-	&:hover {
-		text-decoration: none;
-		.title {
-			color: var(--app-text-accent);
-		}
+	&:hover .title {
+		color: var(--app-text-accent);
 	}
 }
 

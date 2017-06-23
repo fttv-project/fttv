@@ -30,8 +30,9 @@
 				opacity: 0.9;
 			}
 
-			&:hover {
+			&:hover, &:focus, &:active {
 				opacity: 1;
+				text-decoration: underline;
 			}
 
 			// prevent padding changes when font weight changes

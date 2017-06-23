@@ -31,18 +31,6 @@
 	align-self: flex-start;
 }
 
-.title, .streamer {
-	&:visited {
-		color: var(--app-text);
-	}
-
-	&:hover {
-		text-decoration: none;
-		color: var(--app-text-accent);
-	}
-
-}
-
 .viewers, .streamer {
 	font-size: 1.2rem;
 }
