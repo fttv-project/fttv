@@ -3,6 +3,7 @@ import React from "react";
 import InfiniteScroll from "components/infinite-scroll";
 import Grid from "components/grid";
 import { GridCellProps } from "components/grid/cell";
+import Loading from "./loading";
 
 export default class InfiniteGrid extends React.PureComponent<Props, {}> {
 	componentWillMount() {
@@ -14,24 +15,26 @@ export default class InfiniteGrid extends React.PureComponent<Props, {}> {
 
 	render() {
 		const { items, gridClass, columnWidth, cell, scrollElement, scrollThreshold, isLoading } = this.props;
-		return items && (
-			<InfiniteScroll
-				items={items}
-				loadItems={this.loadItems}
-				threshold={scrollThreshold}
-				scrollElement={scrollElement}
-				isLoading={isLoading}
-			>
-				{({ registerChild }) => (
-					<Grid
-						gridClass={gridClass}
-						items={items}
-						targetColumnWidth={columnWidth}
-						registerLoader={registerChild}
-						cell={cell}
-					/>
-				)}
-			</InfiniteScroll>
+		return items && items.length > 0 ? (
+				<InfiniteScroll
+					items={items}
+					loadItems={this.loadItems}
+					threshold={scrollThreshold}
+					scrollElement={scrollElement}
+					isLoading={isLoading}
+				>
+					{({ registerChild }) => (
+						<Grid
+							gridClass={gridClass}
+							items={items}
+							targetColumnWidth={columnWidth}
+							registerLoader={registerChild}
+							cell={cell}
+						/>
+					)}
+				</InfiniteScroll>
+		) : (
+			<Loading />
 		);
 	}
 
