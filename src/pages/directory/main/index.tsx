@@ -10,9 +10,8 @@ import { loadNext } from "data/games";
 
 import { returnOf } from "common/util";
 
-import InfiniteScroll from "components/infinite-scroll";
 import Tabs, { Tab } from "components/tabs";
-import Grid from "components/grid";
+import InfiniteGrid from "components/infinite-grid";
 import GameCell from "components/grid/cell/game";
 
 import style from "./index.scss";
@@ -22,10 +21,6 @@ class Directory extends React.Component<Props & InjectedTranslateProps, OwnState
 	constructor(props: Props) {
 		super(props);
 		this.state = { scrollElement: null! };
-	}
-
-	componentWillMount() {
-		if (this.props.topGames.top.length <= 0) this.props.loadNext(60);
 	}
 
 	render() {
@@ -59,35 +54,22 @@ class Directory extends React.Component<Props & InjectedTranslateProps, OwnState
 	}
 
 	private renderGames() {
-		const { topGames, isLoading } = this.props;
+		const { topGames, isLoading, loadNext } = this.props;
 		return (
-			<InfiniteScroll
+			<InfiniteGrid
 				items={topGames.top}
-				loadItems={this.loadGames}
-				threshold={600}
+				cell={GameCell}
+				gridClass={style.gameGrid}
+				loadItems={loadNext}
+				apiLimit={100}
+				apiLoadChunk={40}
+				initialChunk={60}
+				columnWidth="18em"
 				scrollElement={this.state.scrollElement}
+				scrollThreshold={600}
 				isLoading={isLoading}
-			>
-				{({ items, registerChild }) => (
-					<Grid
-						gridClass={style.gameGrid}
-						items={items}
-						targetColumnWidth="18rem"
-						registerLoader={registerChild}
-						cell={GameCell}
-					/>
-				)}
-			</InfiniteScroll>
+			/>
 		);
-	}
-
-	private loadGames = ({ elementsHint }: { elementsHint: number }) => {
-		const { loadNext, isLoading } = this.props;
-		const elements = elementsHint || 40;
-
-		if (!isLoading) {
-			loadNext(Math.min(elements, 100));
-		}
 	}
 
 	private setScrollingElement = (scrollElement: HTMLElement | null) => {

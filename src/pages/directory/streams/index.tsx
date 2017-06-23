@@ -10,8 +10,7 @@ import { loadGame } from "data/streams";
 
 import { returnOf } from "common/util";
 
-import InfiniteScroll from "components/infinite-scroll";
-import Grid from "components/grid";
+import InfiniteGrid from "components/infinite-grid";
 import StreamCell from "components/grid/cell/stream";
 
 import style from "./index.scss";
@@ -23,47 +22,32 @@ class Streams extends React.Component<Props & InjectedTranslateProps, OwnState> 
 		this.state = { scrollElement: null! };
 	}
 
-	componentWillMount() {
-		const { gameTitle } = this.props.match.params;
-		const game = this.game;
-		if (!game || game.value.streams.length <= 0) this.props.loadGame(gameTitle, 60);
-	}
-
 	render() {
 		const game = this.game;
-		return game ? (
+		return (
 			<div ref={this.setScrollingElement} className={style.streamsContainer}>
-				<InfiniteScroll
-					items={game.value.streams}
-					loadItems={this.loadGames}
-					threshold={600}
+				<InfiniteGrid
+					items={(game && game.value.streams) || null}
+					cell={StreamCell}
+					gridClass={style.streamGrid}
+					columnWidth="28rem"
+					loadItems={this.loadStreams}
+					apiLimit={100}
+					apiLoadChunk={40}
+					initialChunk={60}
 					scrollElement={this.state.scrollElement}
+					scrollThreshold={600}
 					isLoading={!game || game.isLoading}
-				>
-					{({ items, registerChild }) => (
-						<Grid
-							gridClass={style.gameGrid}
-							items={items}
-							targetColumnWidth="28rem"
-							registerLoader={registerChild}
-							cell={StreamCell}
-						/>
-					)}
-				</InfiniteScroll>
+				/>
 			</div>
-		) : null;
+		);
 
 	}
 
-	private loadGames = ({ elementsHint }: { elementsHint: number }) => {
-		const isLoading = !this.game || this.game.isLoading;
+	private loadStreams = (elements: number) => {
 		const { gameTitle } = this.props.match.params;
 		const { loadGame } = this.props;
-
-		const elements = elementsHint || 40;
-		if (!isLoading) {
-			loadGame(gameTitle, Math.min(elements, 100));
-		}
+		loadGame(gameTitle, elements);
 	}
 
 	private setScrollingElement = (scrollElement: HTMLElement | null) => {
