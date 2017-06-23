@@ -1,0 +1,62 @@
+.stream {
+	width: 100%;
+	display: block;
+	cursor: pointer;
+}
+
+.box {
+	width: 100%;
+	position: relative;
+	padding-bottom: 56.25%;
+}
+
+.boxImage {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	display: block;
+	width: 100%;
+}
+
+.body {
+	width: 100%;
+	padding: 0.5rem 0 0;
+}
+
+.title, .viewers {
+	width: 100%;
+	line-height: 2rem;
+	align-self: flex-start;
+}
+
+.title, .streamer {
+	&:visited {
+		color: var(--app-text);
+	}
+
+	&:hover {
+		text-decoration: none;
+		color: var(--app-text-accent);
+	}
+
+}
+
+.viewers, .streamer {
+	font-size: 1.2rem;
+}
+
+.title {
+	color: var(--app-text);
+	margin-bottom: 0;
+	font-size: 1.4rem;
+}
+
+.viewers {
+	color: var(--game-viewer-text);
+}
+
+.streamer {
+	color: var(--app-text);
+}

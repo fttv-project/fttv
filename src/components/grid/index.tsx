@@ -26,5 +26,5 @@ interface Props {
 	gridClass?: string;
 	targetColumnWidth: string;
 	registerLoader: React.Ref<HTMLElement>;
-	cell: (props: GridCellProps<any>) => JSX.Element;
+	cell: React.ComponentType<GridCellProps<any>>;
 }
