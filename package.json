@@ -78,7 +78,7 @@
 	},
 	"dependencies": {
 		"classnames": "^2.2.5",
-		"connected-react-router": "github:odensc/connected-react-router",
+		"connected-react-router": "^4.2.3",
 		"element-resize-detector": "^1.1.12",
 		"history": "^4.6.3",
 		"i18next": "^8.4.2",
