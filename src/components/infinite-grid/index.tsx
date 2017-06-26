@@ -6,7 +6,7 @@ import { GridCellProps } from "components/grid/cell";
 import Loading from "./loading";
 
 export default class InfiniteGrid extends React.PureComponent<Props, {}> {
-	componentWillMount() {
+	componentDidMount() {
 		const { initialChunk, items, loadItems } = this.props;
 		if (initialChunk && (!items || items.length <= 0)) {
 			loadItems(this.calculateApiElements(initialChunk));
