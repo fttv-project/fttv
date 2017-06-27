@@ -2,11 +2,11 @@ import React from "react";
 import { History } from "history";
 import { ConnectedRouter } from "connected-react-router";
 
-import App from "pages/root";
+import { Root } from "pages/root";
 
 export default (props: RouterProps) => (
 	<ConnectedRouter history={props.history}>
-		<App />
+		<Root />
 	</ConnectedRouter>
 );
 
