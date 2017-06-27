@@ -1,8 +1,7 @@
 import React from "react";
 
 import { InfiniteScroll } from "components/infinite-scroll";
-import { Grid } from "components/grid";
-import { GridCellProps } from "components/grid";
+import { Grid, GridCellProps } from "components/grid";
 import { Loading } from "./loading/Loading";
 
 export class InfiniteGrid extends React.PureComponent<InfiniteGridProps, {}> {
