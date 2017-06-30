@@ -4,7 +4,8 @@ declare global {
 	}
 
 	const System: System;
+
+	function requestIdleCallback(cb: () => void): void;
 }
 
 export {};
-
