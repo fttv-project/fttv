@@ -11,10 +11,11 @@ import { NavigationBar } from "components/navigation-bar";
 import manifest from "assets/static/manifest.json";
 import style from "./Root.scss";
 
-const Home = Loadable(() => System.import("pages/home").then(e => e.Home));
-const Auth = Loadable(() => System.import("pages/auth").then(e => e.Auth));
-const Settings = Loadable(() => System.import("pages/settings").then(e => e.Settings));
-const Directory = Loadable(() => System.import("pages/directory").then(e => e.Directory));
+// tslint:disable:whitespace TODO: Remove when TSLint is updated.
+const Home = Loadable(() => import("pages/home").then(e => e.Home));
+const Auth = Loadable(() => import("pages/auth").then(e => e.Auth));
+const Settings = Loadable(() => import("pages/settings").then(e => e.Settings));
+const Directory = Loadable(() => import("pages/directory").then(e => e.Directory));
 
 const preloadedRoutes = [
 	Directory
