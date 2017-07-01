@@ -5,12 +5,12 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
 	<% if (Array.isArray(htmlWebpackPlugin.options.meta)) { %>
-		<% for (let item of htmlWebpackPlugin.options.meta) { %>
-		<meta<% for (key in item) { %> <%= key %>="<%= item[key] %>"<% } %>>
+		<% for (const item of htmlWebpackPlugin.options.meta) { %>
+		<meta<% for (const key in item) { %> <%= key %>="<%= item[key] %>"<% } %>>
 		<% } %>
 	<% } %>
 
-	<% for (let key in htmlWebpackPlugin.files.css) { %>
+	<% for (const key in htmlWebpackPlugin.files.css) { %>
 		<link
 			rel="stylesheet"
 			href="<%= htmlWebpackPlugin.files.css[key] %>"
@@ -28,7 +28,7 @@
 
 	</main>
 
-	<% for (let key in htmlWebpackPlugin.files.js) { %>
+	<% for (const key in htmlWebpackPlugin.files.js) { %>
 	<script
 		defer
 		src="<%= htmlWebpackPlugin.files.js[key] %>"
