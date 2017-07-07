@@ -21,7 +21,7 @@ const preloadedRoutes = [
 	Directory
 ];
 
-class Root extends React.Component<RootProps, {}> {
+class Root extends React.Component<RootProps> {
 	componentDidMount() {
 		this.preloadRoutes();
 	}
@@ -63,7 +63,7 @@ const StateProps = returnOf(mapStateToProps);
 
 export default connect<typeof StateProps, {}, {}>(
 	mapStateToProps,
-	null,
+	{},
 	null,
 	{ pure: false }
 )(Root);

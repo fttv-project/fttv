@@ -50,5 +50,6 @@ export type UserInfoProps = typeof StateProps;
 const StateProps = returnOf(mapStateToProps);
 
 export default connect<typeof StateProps, {}, {}>(
-	mapStateToProps
+	mapStateToProps,
+	{}
 )(UserInfo);

@@ -40,6 +40,7 @@
 		"no-empty-interface": false,
 		"no-namespace": false,
 		"no-misused-new": false,
+		"no-shadowed-variable": false,
 		"no-object-literal-type-assertion": false,
 		"prefer-conditional-expression": false,
 

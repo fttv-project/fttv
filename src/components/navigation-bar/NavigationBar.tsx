@@ -118,5 +118,6 @@ export type NavigationBarProps = typeof StateProps & InjectedTranslateProps;
 const StateProps = returnOf(mapStateToProps);
 
 export default connect<typeof StateProps, {}, {}>(
-	mapStateToProps
+	mapStateToProps,
+	{}
 )(NavigationBar);
