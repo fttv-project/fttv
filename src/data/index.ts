@@ -25,16 +25,16 @@ export interface TypedAction<T extends string> {
 export type Reducer<S> = (state: S | undefined, action: TypedAction<any>) => S;
 
 export const rootEpic = combineEpics<TypedAction<any>, State>(
-	errors.epic,
 	categories.epic,
+	errors.epic,
 	settings.epic,
 	streams.epic,
 	user.epic
 );
 
 export default combineReducers<State>({
-	errors: errors.reducer,
 	categories: categories.reducer,
+	errors: errors.reducer,
 	settings: settings.reducer,
 	streams: streams.reducer,
 	user: user.reducer
