@@ -8,25 +8,25 @@ export const enum ActionTypes {
 	UNLOAD_TOP_GAMES = "categories/UNLOAD_TOP_GAMES"
 }
 
-export interface LoadNextAction extends TypedAction<ActionTypes.LOAD_TOP_GAMES> {
+export interface LoadTopGamesAction extends TypedAction<ActionTypes.LOAD_TOP_GAMES> {
 	payload: {
 		limit: number;
 	};
 }
 
-export interface SetTopAction extends TypedAction<ActionTypes.SET_TOP_GAMES> {
+export interface SetTopGamesAction extends TypedAction<ActionTypes.SET_TOP_GAMES> {
 	payload: {
 		topGames: TopGames;
 	};
 }
 
-export interface UnloadAction extends TypedAction<ActionTypes.UNLOAD_TOP_GAMES> {
+export interface UnloadTopGamesAction extends TypedAction<ActionTypes.UNLOAD_TOP_GAMES> {
 }
 
 export type Action =
-	| LoadNextAction
-	| SetTopAction
-	| UnloadAction;
+	| LoadTopGamesAction
+	| SetTopGamesAction
+	| UnloadTopGamesAction;
 
 export const loadTopGames = (limit: number): Action => ({
 	type: ActionTypes.LOAD_TOP_GAMES,

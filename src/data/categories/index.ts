@@ -8,7 +8,7 @@ import { Reducer, State as GlobalState } from "data";
 import { add as addError } from "data/errors";
 import { concatDedupe, makeDefaultPaginatedContent } from "data/common";
 
-import { Action, ActionTypes, LoadNextAction, setTopGames } from "./actions";
+import { Action, ActionTypes, LoadTopGamesAction, setTopGames } from "./actions";
 import { State, TopGames } from "./model";
 
 export const initialState: State = {
@@ -41,7 +41,7 @@ export const reducer: Reducer<State> = (state = initialState, action: Action): S
 	}
 };
 
-export const epic = (actions$: ActionsObservable<LoadNextAction>, store: MiddlewareAPI<GlobalState>) => actions$
+export const epic = (actions$: ActionsObservable<LoadTopGamesAction>, store: MiddlewareAPI<GlobalState>) => actions$
 	.ofType(ActionTypes.LOAD_TOP_GAMES)
 	.switchMap(action => {
 		const offset = store.getState().categories.topGames.offset;

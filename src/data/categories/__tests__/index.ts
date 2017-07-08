@@ -3,12 +3,13 @@ import nock from "nock";
 
 import { BASE_URL } from "common/twitch-api";
 import { add as addError } from "data/errors";
-import { LoadNextAction, epic, initialState, loadTopGames, reducer, setTopGames, unloadTopGames } from "../";
+import { LoadTopGamesAction, epic, initialState, loadTopGames, reducer, setTopGames, unloadTopGames } from "../";
+import { State as GlobalState } from "../..";
 
 const store$ = {
 	dispatch: null!,
-	getState() {
-		return { games: { offset: 100 } } as any;
+	getState(): GlobalState {
+		return { categories: { topGames: { offset: 100 } } } as GlobalState;
 	}
 };
 
@@ -50,7 +51,7 @@ describe("Epic", () => {
 				.query(true)
 				.reply(401);
 
-			const actions$ = ActionsObservable.of(loadTopGames(60) as LoadNextAction);
+			const actions$ = ActionsObservable.of(loadTopGames(60) as LoadTopGamesAction);
 			return epic(actions$, store$).toPromise()
 				.then(action => {
 					expect(action).toEqual(addError("ajax error 401"));
@@ -63,7 +64,7 @@ describe("Epic", () => {
 				.query(true)
 				.reply(200, { mock: true });
 
-			const actions$ = ActionsObservable.of(loadTopGames(60) as LoadNextAction);
+			const actions$ = ActionsObservable.of(loadTopGames(60) as LoadTopGamesAction);
 			return epic(actions$, store$).toPromise()
 				.then(action => {
 					expect(action).toEqual(setTopGames({ mock: true } as any));
@@ -76,7 +77,7 @@ describe("Epic", () => {
 				.query({ limit: 100, offset: 100 })
 				.reply(200, { mock: true });
 
-			const actions$ = ActionsObservable.of(loadTopGames(100) as LoadNextAction);
+			const actions$ = ActionsObservable.of(loadTopGames(100) as LoadTopGamesAction);
 			return epic(actions$, store$).toPromise()
 				.then(action => {
 					expect(action).toEqual(setTopGames({ mock: true } as any));
