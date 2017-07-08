@@ -13,7 +13,7 @@ import { UserInfo } from "components/user-info";
 import moreIcon from "./more.svg";
 import style from "./NavigationBar.scss";
 
-const AuthButtons = Loadable(() => System.import("components/auth-buttons"));
+const AuthButtons = Loadable(() => import("components/auth-buttons").then(c => c.AuthButtons));
 
 type Item = [string, string];
 const mapItemsToLinks = (items: Item[]) => items
