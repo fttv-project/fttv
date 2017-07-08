@@ -3,7 +3,7 @@ import nock from "nock";
 
 import { BASE_URL } from "common/twitch-api";
 import { add as addError } from "data/errors";
-import { LoadNextAction, epic, initialState, loadNext, reducer, setTop, unload } from "../";
+import { LoadNextAction, epic, initialState, loadTopGames, reducer, setTopGames, unloadTopGames } from "../";
 
 const store$ = {
 	dispatch: null!,
@@ -19,32 +19,38 @@ describe("Reducer", () => {
 		).toEqual(initialState);
 	});
 
-	describe("LOAD_NEXT", () => {
+	describe("LOAD_TOP_GAMES", () => {
 		it("should set isLoading to true", () => {
 			expect(
-				reducer({ ...initialState, isLoading: false }, loadNext(60)).isLoading
+				reducer({
+					...initialState,
+					topGames: {
+						...initialState.topGames,
+						isLoading: false
+					}
+				}, loadTopGames(60)).topGames.isLoading
 			).toEqual(true);
 		});
 	});
 
-	describe("UNLOAD", () => {
+	describe("UNLOAD_TOP_GAMES", () => {
 		it("should reset to initial state", () => {
 			expect(
-				reducer({ ...initialState, isLoading: true }, unload())
-			).toEqual(initialState);
+				reducer({ ...initialState, topGames: { ...initialState.topGames, isLoading: true }}, unloadTopGames()).topGames
+			).toEqual(initialState.topGames);
 		});
 	});
 });
 
 describe("Epic", () => {
-	describe("LOAD_NEXT", () => {
+	describe("LOAD_TOP_GAMES", () => {
 		it("should add error if given", () => {
 			nock(BASE_URL)
 				.get("/games/top")
 				.query(true)
 				.reply(401);
 
-			const actions$ = ActionsObservable.of(loadNext(60) as LoadNextAction);
+			const actions$ = ActionsObservable.of(loadTopGames(60) as LoadNextAction);
 			return epic(actions$, store$).toPromise()
 				.then(action => {
 					expect(action).toEqual(addError("ajax error 401"));
@@ -57,10 +63,10 @@ describe("Epic", () => {
 				.query(true)
 				.reply(200, { mock: true });
 
-			const actions$ = ActionsObservable.of(loadNext(60) as LoadNextAction);
+			const actions$ = ActionsObservable.of(loadTopGames(60) as LoadNextAction);
 			return epic(actions$, store$).toPromise()
 				.then(action => {
-					expect(action).toEqual(setTop({ mock: true } as any));
+					expect(action).toEqual(setTopGames({ mock: true } as any));
 				});
 		});
 
@@ -70,10 +76,10 @@ describe("Epic", () => {
 				.query({ limit: 100, offset: 100 })
 				.reply(200, { mock: true });
 
-			const actions$ = ActionsObservable.of(loadNext(100) as LoadNextAction);
+			const actions$ = ActionsObservable.of(loadTopGames(100) as LoadNextAction);
 			return epic(actions$, store$).toPromise()
 				.then(action => {
-					expect(action).toEqual(setTop({ mock: true } as any));
+					expect(action).toEqual(setTopGames({ mock: true } as any));
 				});
 		});
 	});

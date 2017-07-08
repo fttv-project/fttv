@@ -1,9 +1,8 @@
 import { TopGame, TopGames } from "common/twitch-api/games";
+import { PaginatedContent } from "data/common";
 
 export { TopGame, TopGames };
 
 export interface State {
-	isLoading: boolean;
-	offset: number;
-	topGames: TopGames;
+	topGames: PaginatedContent<TopGames>;
 }
