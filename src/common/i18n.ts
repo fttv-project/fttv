@@ -1,6 +1,6 @@
 import i18next from "i18next";
-import XHR, { BackendOptions } from "i18next-xhr-backend";
 import LanguageDetector from "i18next-browser-languagedetector";
+import XHR, { BackendOptions } from "i18next-xhr-backend";
 
 function loadLocale(url: string, _: any, callback: any) {
 	System.import(`translations/${url}.json`)

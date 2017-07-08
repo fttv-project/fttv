@@ -40,6 +40,7 @@
 		"no-empty-interface": false,
 		"no-namespace": false,
 		"no-misused-new": false,
+		"no-shadowed-variable": false,
 		"no-object-literal-type-assertion": false,
 		"prefer-conditional-expression": false,
 
@@ -60,7 +61,7 @@
 		"ordered-imports": [
 			true,
 			{
-				"import-sources-order": "any",
+				"import-sources-order": "lowercase-last",
 				"named-imports-order": "lowercase-last"
 			}
 		]

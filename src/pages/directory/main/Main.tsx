@@ -6,13 +6,13 @@ import { RouteComponentProps } from "react-router-dom";
 import { Action, Dispatch, bindActionCreators } from "redux";
 
 import { State } from "data";
-import { loadNext } from "data/games";
+import { loadTopGames } from "data/categories";
 
 import { returnOf } from "common/util";
 
-import { Tab, Tabs } from "components/tabs";
-import { InfiniteGrid } from "components/infinite-grid";
 import { GameCell } from "components/grid";
+import { InfiniteGrid } from "components/infinite-grid";
+import { Tab, Tabs } from "components/tabs";
 
 import style from "./Main.scss";
 
@@ -54,20 +54,20 @@ class Main extends React.Component<Props & InjectedTranslateProps, OwnState> {
 	}
 
 	private renderGames() {
-		const { topGames, isLoading, loadNext } = this.props;
+		const { topGames, loadTopGames } = this.props;
 		return (
 			<InfiniteGrid
-				items={topGames.top}
+				items={topGames.value.top}
 				cell={GameCell}
 				gridClass={style.gameGrid}
-				loadItems={loadNext}
+				loadItems={loadTopGames}
 				apiLimit={100}
 				apiLoadChunk={40}
 				initialChunk={60}
 				columnWidth="18em"
 				scrollElement={this.state.scrollElement}
 				scrollThreshold={600}
-				isLoading={isLoading}
+				isLoading={topGames.isLoading}
 			/>
 		);
 	}
@@ -78,12 +78,11 @@ class Main extends React.Component<Props & InjectedTranslateProps, OwnState> {
 }
 
 const mapStateToProps = (state: State) => ({
-	topGames: state.games.topGames,
-	isLoading: state.games.isLoading
+	topGames: state.categories.topGames
 });
 
 const mapDispatchToProps = (dispatch: Dispatch<Action>) => bindActionCreators({
-	loadNext
+	loadTopGames
 }, dispatch);
 
 type Props = typeof StateProps & typeof DispatchProps & RouteComponentProps<{}>;

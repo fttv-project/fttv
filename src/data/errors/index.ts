@@ -1,5 +1,5 @@
-import { ActionsObservable } from "redux-observable";
 import "common/rxjs";
+import { ActionsObservable } from "redux-observable";
 
 import { Reducer } from "data";
 import { Action, ActionTypes, remove } from "./actions";

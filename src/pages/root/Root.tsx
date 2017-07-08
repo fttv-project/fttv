@@ -1,14 +1,14 @@
 import React from "react";
-import Helmet from "react-helmet";
 import CustomProperties from "react-custom-properties";
-import { Route } from "react-router";
+import Helmet from "react-helmet";
 import { connect } from "react-redux";
+import { Route } from "react-router";
 
+import manifest from "assets/static/manifest.json";
 import Loadable from "common/loadable";
 import { idleCallback, returnOf } from "common/util";
-import { State } from "data";
 import { NavigationBar } from "components/navigation-bar";
-import manifest from "assets/static/manifest.json";
+import { State } from "data";
 import style from "./Root.scss";
 
 // tslint:disable:whitespace TODO: Remove when TSLint is updated.
@@ -21,7 +21,7 @@ const preloadedRoutes = [
 	Directory
 ];
 
-class Root extends React.Component<RootProps, {}> {
+class Root extends React.Component<RootProps> {
 	componentDidMount() {
 		this.preloadRoutes();
 	}
@@ -63,7 +63,7 @@ const StateProps = returnOf(mapStateToProps);
 
 export default connect<typeof StateProps, {}, {}>(
 	mapStateToProps,
-	null,
+	{},
 	null,
 	{ pure: false }
 )(Root);

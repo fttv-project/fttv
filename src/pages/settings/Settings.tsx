@@ -1,7 +1,7 @@
 import React from "react";
 import Helmet from "react-helmet";
-import { connect } from "react-redux";
 import { InjectedTranslateProps, translate } from "react-i18next";
+import { connect } from "react-redux";
 import { Action, Dispatch, bindActionCreators } from "redux";
 
 import { returnOf } from "common/util";

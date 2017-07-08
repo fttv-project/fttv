@@ -1,14 +1,14 @@
-import * as OfflinePluginRuntime from "offline-plugin/runtime";
 import createHistory from "history/createBrowserHistory";
+import * as OfflinePluginRuntime from "offline-plugin/runtime";
 import React from "react";
 import { render } from "react-dom";
-import { Provider } from "react-redux";
 import { I18nextProvider } from "react-i18next";
+import { Provider } from "react-redux";
 
 import i18n from "common/i18n";
 import { ReactHotLoader } from "components/react-hot-loader";
-import configureStore from "store/configureStore";
 import Router from "router";
+import configureStore from "store/configureStore";
 
 import "styles/global.scss";
 

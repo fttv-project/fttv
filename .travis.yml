@@ -1,11 +1,12 @@
 language: "node_js"
+cache: yarn
 
 node_js:
   - "node"
 
 script:
-  - "npm test"
-  - "npm run build"
+  - "yarn test"
+  - "yarn build"
 
 notifications:
   email: false

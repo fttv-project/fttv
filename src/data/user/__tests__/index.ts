@@ -1,5 +1,5 @@
-import { ActionsObservable } from "redux-observable";
 import nock from "nock";
+import { ActionsObservable } from "redux-observable";
 
 import { BASE_URL } from "common/twitch-api";
 import { add as addError } from "data/errors";

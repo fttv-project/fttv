@@ -5,8 +5,8 @@ import "common/rxjs";
 import { getLiveStreams } from "common/twitch-api/streams";
 
 import { Reducer, State as GlobalState } from "data";
-import { add as addError } from "data/errors";
 import { PaginatedContent, changeInMap, concatDedupe } from "data/common";
+import { add as addError } from "data/errors";
 
 import { Action, ActionTypes, LoadGameAction, setGame } from "./actions";
 import { MultipleStreams, State } from "./model";
