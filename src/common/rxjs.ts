@@ -1,7 +1,7 @@
 import "rxjs/add/observable/dom/ajax";
-import "rxjs/add/observable/never";
 import "rxjs/add/observable/fromEvent";
 import "rxjs/add/observable/fromPromise";
+import "rxjs/add/observable/never";
 import "rxjs/add/operator/catch";
 import "rxjs/add/operator/delay";
 import "rxjs/add/operator/distinctUntilChanged";
@@ -12,8 +12,8 @@ import "rxjs/add/operator/switchMap";
 import "rxjs/add/operator/takeUntil";
 import "rxjs/add/operator/withLatestFrom";
 
-import { Observable } from "rxjs/Observable";
 import { BehaviorSubject } from "rxjs/BehaviorSubject";
+import { Observable } from "rxjs/Observable";
 import { Subject } from "rxjs/Subject";
 import { Subscription } from "rxjs/Subscription";
 

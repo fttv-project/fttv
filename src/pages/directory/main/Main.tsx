@@ -10,9 +10,9 @@ import { loadTopGames } from "data/categories";
 
 import { returnOf } from "common/util";
 
-import { Tab, Tabs } from "components/tabs";
-import { InfiniteGrid } from "components/infinite-grid";
 import { GameCell } from "components/grid";
+import { InfiniteGrid } from "components/infinite-grid";
+import { Tab, Tabs } from "components/tabs";
 
 import style from "./Main.scss";
 

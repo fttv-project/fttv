@@ -1,17 +1,17 @@
 import React from "react";
-import { connect } from "react-redux";
 import { InjectedTranslateProps, translate } from "react-i18next";
+import { connect } from "react-redux";
 import { NavLink } from "react-router-dom";
 
 import Loadable from "common/loadable";
 import { returnOf } from "common/util";
-import { State } from "data";
 import { Balloon, BalloonList, ignoreCloseClass } from "components/balloon";
 import { Button } from "components/button";
 import { UserInfo } from "components/user-info";
+import { State } from "data";
 
-import moreIcon from "./more.svg";
 import style from "./NavigationBar.scss";
+import moreIcon from "./more.svg";
 
 const AuthButtons = Loadable(() => import("components/auth-buttons").then(c => c.AuthButtons));
 

@@ -1,6 +1,6 @@
+import { parse } from "querystring";
 import React from "react";
 import { InjectedTranslateProps, translate } from "react-i18next";
-import { parse } from "querystring";
 
 import style from "./Auth.scss";
 

@@ -10,8 +10,8 @@ import { loadGame } from "data/streams";
 
 import { returnOf } from "common/util";
 
-import { InfiniteGrid } from "components/infinite-grid";
 import { StreamCell } from "components/grid";
+import { InfiniteGrid } from "components/infinite-grid";
 
 import style from "./Streams.scss";
 

@@ -1,10 +1,10 @@
+import classnames from "classnames";
 import React from "react";
 import { connect } from "react-redux";
-import classnames from "classnames";
 
 import { returnOf } from "common/util";
-import { State } from "data";
 import { Button } from "components/button";
+import { State } from "data";
 
 import style from "./UserInfo.scss";
 

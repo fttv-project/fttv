@@ -5,8 +5,8 @@ import "common/rxjs";
 import { getTopGames } from "common/twitch-api/games";
 
 import { Reducer, State as GlobalState } from "data";
-import { add as addError } from "data/errors";
 import { concatDedupe, makeDefaultPaginatedContent } from "data/common";
+import { add as addError } from "data/errors";
 
 import { Action, ActionTypes, LoadTopGamesAction, setTopGames } from "./actions";
 import { State, TopGames } from "./model";

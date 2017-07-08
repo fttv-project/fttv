@@ -1,7 +1,7 @@
-import React from "react";
-import { Link } from "react-router-dom";
 import classnames from "classnames";
+import React from "react";
 import { Interpolate, translate } from "react-i18next";
+import { Link } from "react-router-dom";
 
 import { Stream } from "common/twitch-api/streams";
 import { GridCellProps } from "..";

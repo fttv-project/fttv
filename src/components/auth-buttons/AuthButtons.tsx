@@ -1,13 +1,13 @@
 import React from "react";
-import { connect } from "react-redux";
 import { InjectedTranslateProps, translate } from "react-i18next";
+import { connect } from "react-redux";
 import { Action, Dispatch, bindActionCreators } from "redux";
 
 import { getAuthorizeUrl } from "common/twitch-api";
 import { generateRandomString, returnOf } from "common/util";
+import { Button } from "components/button";
 import { add as addError } from "data/errors";
 import { setAccessToken } from "data/user";
-import { Button } from "components/button";
 
 @translate("auth-buttons")
 class AuthButtons extends React.Component<AuthButtonsProps, {}> {

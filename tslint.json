@@ -61,7 +61,7 @@
 		"ordered-imports": [
 			true,
 			{
-				"import-sources-order": "any",
+				"import-sources-order": "lowercase-last",
 				"named-imports-order": "lowercase-last"
 			}
 		]

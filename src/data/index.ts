@@ -1,9 +1,9 @@
+import { RouterState } from "connected-react-router";
 import { combineReducers } from "redux";
 import { combineEpics } from "redux-observable";
-import { RouterState } from "connected-react-router";
 
-import * as errors from "./errors";
 import * as categories from "./categories";
+import * as errors from "./errors";
 import * as settings from "./settings";
 import * as streams from "./streams";
 import * as user from "./user";
