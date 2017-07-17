@@ -55,6 +55,7 @@ module.exports = Object.assign(base, {
 		}, {
 			comments: false
 		}),
+		new webpack.optimize.ModuleConcatenationPlugin(),
 		new ExtractTextPlugin(process.env.PRODUCTION_DEBUG ? "[name].css" : "[contenthash:8].css"),
 		new SriPlugin({
 			enabled: true,
