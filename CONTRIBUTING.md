@@ -14,7 +14,7 @@ Before submitting a PR, make sure you run `npm run lint`, `npm run test`, and fi
 
 Some errors may have auto-fixes, in which case you can run `npm run lint -- --fix` and fix the remaining errors.
 
-For the title of your PR, put a descriptive summary of what you changed.
+For the title of your PR, enter a descriptive and concise summary of what you changed.
 
 If needed, you can expand on the title in the PR description.
 
