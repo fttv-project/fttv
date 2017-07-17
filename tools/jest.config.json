@@ -11,9 +11,9 @@
 		"tsx",
 		"js"
 	],
-"globals": {
-"ts-jest": {
-"useBabelrc": true
-}
-}
+	"globals": {
+		"ts-jest": {
+			"useBabelrc": true
+		}
+	}
 }
