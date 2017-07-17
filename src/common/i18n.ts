@@ -3,7 +3,7 @@ import LanguageDetector from "i18next-browser-languagedetector";
 import XHR, { BackendOptions } from "i18next-xhr-backend";
 
 function loadLocale(url: string, _: any, callback: any) {
-	System.import(`translations/${url}.json`)
+	import(`translations/${url}.json`)
 		.then(locale => callback(locale, { status: 200 }))
 		.catch(() => callback(null, { status: 404 }));
 }

@@ -30,7 +30,7 @@ export const epic = (actions$: ActionsObservable<Action>) => actions$
 			case ActionTypes.LOAD_THEME: {
 				const { name } = action.payload;
 				return Observable
-					.fromPromise(System.import<{ default: Theme }>(`styles/themes/${name}`))
+					.fromPromise<{ default: Theme }>(import(`styles/themes/${name}`))
 					.map(theme => setTheme(theme.default));
 			}
 

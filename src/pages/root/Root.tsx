@@ -11,7 +11,6 @@ import { NavigationBar } from "components/navigation-bar";
 import { State } from "data";
 import style from "./Root.scss";
 
-// tslint:disable:whitespace TODO: Remove when TSLint is updated.
 const Home = Loadable(() => import("pages/home").then(e => e.Home));
 const Auth = Loadable(() => import("pages/auth").then(e => e.Auth));
 const Settings = Loadable(() => import("pages/settings").then(e => e.Settings));
