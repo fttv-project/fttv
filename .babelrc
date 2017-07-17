@@ -1,4 +1,5 @@
 {
+	// For support of dynamic imports with Jest.
 	"plugins": ["dynamic-import-node"],
 	"sourceMaps": "inline"
 }
