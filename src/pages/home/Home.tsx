@@ -5,7 +5,7 @@ import { NavLink, RouteComponentProps } from "react-router-dom";
 import style from "./Home.scss";
 
 @translate("home")
-export class Home extends React.Component<Props, any> {
+export class Home extends React.Component<Props> {
 	render() {
 		const t = this.props.t!;
 

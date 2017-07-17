@@ -12,7 +12,7 @@ import { themes } from "styles/themes";
 import style from "./Settings.scss";
 
 @translate("settings")
-class Settings extends React.Component<SettingsProps, {}> {
+class Settings extends React.Component<SettingsProps> {
 	onThemeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
 		this.props.loadTheme(e.target.value);
 	}

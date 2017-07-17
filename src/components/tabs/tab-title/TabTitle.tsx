@@ -3,7 +3,7 @@ import React from "react";
 
 import style from "./TabTitle.scss";
 
-export class TabTitle extends React.PureComponent<TabTitleProps, {}> {
+export class TabTitle extends React.PureComponent<TabTitleProps> {
 	render() {
 		const { header, label, activeIndex, index } = this.props;
 		return (
