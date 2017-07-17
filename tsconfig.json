@@ -3,12 +3,9 @@
 		"module": "esnext",
 		"moduleResolution": "node",
 		"target": "es2015",
-		"downlevelIteration": true,
 
 		"baseUrl": "./src",
 		"outDir": "./dist",
-		// TODO: Remove when RxJS is updated.
-		"noStrictGenericChecks": true,
 
 		"jsx": "react",
 		"lib": [

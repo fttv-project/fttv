@@ -24,5 +24,8 @@ export default i18next
 		interpolation: {
 			escapeValue: false
 		},
-		wait: true
+
+		react: {
+			wait: true
+		}
 	});
