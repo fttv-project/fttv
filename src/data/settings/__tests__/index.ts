@@ -1,11 +1,7 @@
 import { ActionsObservable } from "redux-observable";
 
+import darkTheme from "styles/themes/dark";
 import { epic, initialState, loadTheme, reducer, setTheme } from "../";
-
-const mockTheme = {
-	name: "mock",
-	properties: {} as any
-};
 
 describe("Reducer", () => {
 	it("should set initial state", () => {
@@ -17,8 +13,8 @@ describe("Reducer", () => {
 	describe("SET_THEME", () => {
 		it("should set theme", () => {
 			expect(
-				reducer(initialState, setTheme(mockTheme)).theme
-			).toEqual(mockTheme);
+				reducer(initialState, setTheme(darkTheme)).theme
+			).toEqual(darkTheme);
 		});
 	});
 });
@@ -26,14 +22,10 @@ describe("Reducer", () => {
 describe("Epic", () => {
 	describe("LOAD_THEME", () => {
 		it("should import and set theme", () => {
-			// mock theme import
-			(global as any).System = {};
-			(System as any).import = async () => ({ default: mockTheme });
-
-			const actions$ = ActionsObservable.of(loadTheme("mock"));
+			const actions$ = ActionsObservable.of(loadTheme("dark"));
 			return epic(actions$).toPromise()
 				.then(action => {
-					expect(action).toEqual(setTheme(mockTheme));
+					expect(action).toEqual(setTheme(darkTheme));
 				});
 		});
 	});

@@ -10,5 +10,10 @@
 		"ts",
 		"tsx",
 		"js"
-	]
+	],
+"globals": {
+"ts-jest": {
+"useBabelrc": true
+}
+}
 }
