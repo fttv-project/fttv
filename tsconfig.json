@@ -16,7 +16,6 @@
 			{"name": "tslint-language-service"}
 		],
 
-		"alwaysStrict": true,
 		"strict": true,
 		"sourceMap": true,
 
