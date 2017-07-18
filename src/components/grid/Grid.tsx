@@ -4,7 +4,7 @@ import React from "react";
 import { GridCellProps } from ".";
 import style from "./Grid.scss";
 
-export class Grid extends React.PureComponent<GridProps, {}> {
+export class Grid extends React.PureComponent<GridProps> {
 	render() {
 		const { cell: Cell, gridClass, items, targetColumnWidth, registerLoader } = this.props;
 		return (

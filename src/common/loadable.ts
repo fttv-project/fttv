@@ -1,6 +1,6 @@
 import Loadable, { OptionsWithoutRender } from "react-loadable";
 
-export default <P = any>(loader: () => Promise<any>, options: Partial<OptionsWithoutRender<P>> = {}) => {
+export default <P>(loader: () => Promise<React.ComponentType<P>>, options: Partial<OptionsWithoutRender<P>> = {}) => {
 	return Loadable<P, any>({
 		loader,
 		loading: () => null,

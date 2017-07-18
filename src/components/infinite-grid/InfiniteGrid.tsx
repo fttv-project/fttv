@@ -4,7 +4,7 @@ import { Grid, GridCellProps } from "components/grid";
 import { InfiniteScroll } from "components/infinite-scroll";
 import { Loading } from "./loading/Loading";
 
-export class InfiniteGrid extends React.PureComponent<InfiniteGridProps, {}> {
+export class InfiniteGrid extends React.PureComponent<InfiniteGridProps> {
 	componentDidMount() {
 		const { initialChunk, items, loadItems } = this.props;
 		if (initialChunk && (!items || items.length <= 0)) {

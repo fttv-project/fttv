@@ -8,7 +8,7 @@ import { GridCellProps } from "..";
 import style from "./StreamCell.scss";
 
 @translate("streams")
-export class StreamCell extends React.PureComponent<GridCellProps<Stream>, {}> {
+export class StreamCell extends React.PureComponent<GridCellProps<Stream>> {
 	render() {
 		const { item } = this.props;
 

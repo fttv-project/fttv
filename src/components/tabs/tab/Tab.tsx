@@ -1,7 +1,7 @@
 import React from "react";
 import Helmet from "react-helmet";
 
-export class Tab extends React.PureComponent<TabProps, {}> {
+export class Tab extends React.PureComponent<TabProps> {
 	render() {
 		return (
 			<div>

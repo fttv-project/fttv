@@ -10,7 +10,7 @@ import { add as addError } from "data/errors";
 import { setAccessToken } from "data/user";
 
 @translate("auth-buttons")
-class AuthButtons extends React.Component<AuthButtonsProps, {}> {
+class AuthButtons extends React.Component<AuthButtonsProps> {
 	private validationToken?: string;
 
 	onMessage = (e: MessageEvent) => {

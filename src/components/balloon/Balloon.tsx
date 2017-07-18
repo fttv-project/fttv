@@ -4,7 +4,7 @@ import onClickOutside from "react-onclickoutside";
 import style from "./Balloon.scss";
 
 @(onClickOutside as any)
-export class Balloon extends React.PureComponent<BalloonProps, {}> {
+export class Balloon extends React.PureComponent<BalloonProps> {
 	handleClickOutside: () => void;
 
 	constructor(props: BalloonProps) {
