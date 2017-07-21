@@ -9,6 +9,7 @@ export default {
 
 		"--balloon-background": "#fff",
 		"--balloon-border": "#dad8de",
+		"--balloon-list-background-hover": "#6441a4",
 		"--balloon-text": "#19171c",
 
 		"--button-background": "#6441a4",
