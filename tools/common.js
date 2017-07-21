@@ -1,4 +1,5 @@
 const { resolve, join } = require("path");
+const createMinifier = require("css-loader-minify-class");
 
 const ROOT = "./src";
 const paths = {
@@ -21,11 +22,12 @@ module.exports = {
 					modules: true,
 					camelCase: true,
 					sourceMap: (process.env.NODE_ENV === "development" || process.env.PRODUCTION_DEBUG),
-					localIdentName: (process.env.NODE_ENV === "development" || process.env.PRODUCTION_DEBUG)
-						? "[folder]__[local]"
-						: "[hash:base64:8]",
+					localIdentName: "[name]__[local]--[hash:2]",
 					importLoaders: 1,
-					minimize: process.env.NODE_ENV === "production"
+					minimize: process.env.NODE_ENV === "production",
+					getLocalIdent: (process.env.NODE_ENV === "production" && !process.env.PRODUCTION_DEBUG)
+						? createMinifier()
+						: undefined
 				}
 			},
 
