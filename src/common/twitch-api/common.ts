@@ -43,7 +43,7 @@ export const twitchGet = <T>(endPoint: string, queryParams?: QueryParams) =>
 	Observable.ajax.getJSON<T>(`${BASE_URL}/${endPoint}${makeQueryString(queryParams)}`, commonHeaders);
 
 export const twitchGetAuthorized = <T>(endPoint: string, accessToken: string, queryParams?: QueryParams) =>
-	Observable.ajax.getJSON<T>(`${BASE_URL}/${endPoint}${makeQueryString(queryParams)}}`, {
+	Observable.ajax.getJSON<T>(`${BASE_URL}/${endPoint}${makeQueryString(queryParams)}`, {
 		...commonHeaders,
 		Authorization: `OAuth ${accessToken}`
 	});
